@@ -38,4 +38,12 @@ public class Order {
     public Date getDate() {
         return date;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", date=" + date +
+                '}';
+    }
 }

@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import ua.lv.entity.User;
 import ua.lv.service.UserService;
 
+import java.security.Principal;
+
 /**
  * Created by User on 09.03.2019.
  */
 @Controller
-public class MainController {
-
+public class WelcomeController {
     @Autowired
     UserService userService;
 
+    @GetMapping(value = "/welcome")
+    String goWelcome(Model model, Principal principal){
 
-    @GetMapping("/")
-    public String toMainPage(Model model){
-//        model.addAttribute("emptyUser", new User());
-        return "start";
-    }
-    @GetMapping("/start")
-    public String goStart (Model model){
-        return "start";
+//        String principalName = principal.getName();
+//        User ByUserName = userService.findByUserName(principalName);
+//        model.addAttribute("currentUser", ByUserName);
+        return "/welcome";
     }
 }
