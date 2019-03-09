@@ -32,7 +32,7 @@ public class DataConfig {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driver);
-        dataSource.setUsername(url);
+        dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         return dataSource;
@@ -45,8 +45,10 @@ public class DataConfig {
         vendorAdapter.setShowSql(true);
         return vendorAdapter;
     }
+
+
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJpaVendorAdapter(vendorAdapter());
         factoryBean.setDataSource(dataSource());
@@ -57,6 +59,9 @@ public class DataConfig {
         factoryBean.setJpaProperties(properties);
         return factoryBean;
     }
+
+
+
 
     @Bean
     public JpaTransactionManager transactionManager (EntityManagerFactory entityManagerFactory){

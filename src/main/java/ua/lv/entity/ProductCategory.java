@@ -1,21 +1,25 @@
 package ua.lv.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Created by User on 08.03.2019.
  */
 @Entity
 public class ProductCategory {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String titel;
+//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//    private Product product;
 
     public ProductCategory() {
     }
 
-    public ProductCategory(int id, String titel) {
-        this.id = id;
+    public ProductCategory(String titel, Product product) {
         this.titel = titel;
+        //this.product = product;
     }
 
     public int getId() {
@@ -33,4 +37,12 @@ public class ProductCategory {
     public void setTitel(String titel) {
         this.titel = titel;
     }
+
+//    public Product getProduct() {
+//        return product;
+//    }
+//
+//    public void setProduct(Product product) {
+//        this.product = product;
+//    }
 }

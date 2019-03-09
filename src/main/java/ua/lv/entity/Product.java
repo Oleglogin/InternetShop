@@ -1,31 +1,35 @@
 package ua.lv.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by User on 08.03.2019.
  */
 @Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String description;
     private String count;
     private BigDecimal price;
-    private ProductCategory productCategory;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+//    private List<ProductCategory> productCategory;
 
     public Product() {
 
     }
 
-    public Product(int id, String title, String description, String count, BigDecimal price, ProductCategory productCategory) {
+    public Product(int id, String title, String description, String count, BigDecimal price, List<ProductCategory> productCategory) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.count = count;
         this.price = price;
-        this.productCategory = productCategory;
+        //this.productCategory = productCategory;
     }
 
     public int getId() {
@@ -68,11 +72,21 @@ public class Product {
         this.price = price;
     }
 
-    public ProductCategory getProductCategory() {
-        return productCategory;
+
+
+    public String getDescription() {
+        return description;
     }
 
-    public void setProductCategory(ProductCategory productCategory) {
-        this.productCategory = productCategory;
+    public void setDescription(String description) {
+        this.description = description;
     }
+
+//    public List<ProductCategory> getProductCategory() {
+//        return productCategory;
+//    }
+//
+//    public void setProductCategory(List<ProductCategory> productCategory) {
+//        this.productCategory = productCategory;
+//    }
 }
