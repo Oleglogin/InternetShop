@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lv.dao.UserDAO;
@@ -12,44 +13,41 @@ import ua.lv.service.UserService;
 
 import java.util.List;
 
-/**
- * Created by User on 09.03.2019.
- */
 @Service
 @Transactional
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl implements UserService, UserDetailsService{
+
     @Autowired
     UserDAO userDAO;
 
-    @Override
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+
     public void save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDAO.save(user);
     }
 
-    @Override
     public User getUserById(int id) {
         return userDAO.findOne(id);
     }
 
-    @Override
     public void delete(int id) {
         userDAO.delete(id);
     }
 
-    @Override
     public List<User> listUsers() {
         return userDAO.findAll();
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
-
-    @Override
     public User findByUserName(String username) {
         return userDAO.findByUserName(username);
     }
 
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return findByUserName(username);
+    }
 
 }
+

@@ -18,11 +18,11 @@ public class WelcomeController {
     UserService userService;
 
     @GetMapping(value = "/welcome")
-    String goWelcome(Model model, Principal principal){
+    public String goWelcome(Model model, Principal principal){
 
-//        String principalName = principal.getName();
-//        User ByUserName = userService.findByUserName(principalName);
-//        model.addAttribute("currentUser", ByUserName);
+        String principalName = principal.getName();
+        User ByUserName = userService.findByUserName(principalName);
+        model.addAttribute("currentUser", ByUserName);
         return "/welcome";
     }
 }
