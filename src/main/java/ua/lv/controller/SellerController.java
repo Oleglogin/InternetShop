@@ -14,26 +14,26 @@ import ua.lv.service.UserService;
 import java.security.Principal;
 
 /**
- * Created by User on 10.03.2019.
+ * Created by User on 11.03.2019.
  */
 @Controller
-public class AdminController {
-
+public class SellerController {
 
     @Autowired
     UserService userService;
     @Autowired
     ProductService productService;
 
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String toAdmin(@ModelAttribute("emptyProduct")Product product, Model model, Principal principal){
+    @RequestMapping(value = "/seller", method = RequestMethod.GET)
+    public String goSeller(@ModelAttribute("emptyProduct") Product product, Model model, Principal principal){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
-        model.addAttribute("currentUser", byUserName);
-        model.addAttribute("currentProduct", new Product());
-        return "admin";
+        model.addAttribute("currentUser" ,byUserName);
+        model.addAttribute("productList", productService.productList());
+
+
+
+
+        return "seller";
     }
-
-
 }

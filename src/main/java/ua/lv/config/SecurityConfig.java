@@ -78,8 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/welcome/**").hasAnyRole("USER","ADMIN")
-                .antMatchers("/start/**").hasAnyRole("USER","ADMIN")
+                .antMatchers("/welcome/**").hasAnyRole("USER","ADMIN","SELLER")
+                .antMatchers("/start/**").hasAnyRole("USER","ADMIN","SELLER")
+                .antMatchers("/seller/**").hasAnyRole("ADMIN","SELLER")
                 .and()
                 .exceptionHandling().accessDeniedPage("/accessDenied").and()
                 .formLogin()
@@ -88,7 +89,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .usernameParameter("username")
                 .passwordParameter("password").and()
                 .logout().logoutUrl("/logout")
-                .logoutSuccessUrl("/start")
+                .logoutSuccessUrl("/welcome")
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).and()
                 .csrf();
     }
