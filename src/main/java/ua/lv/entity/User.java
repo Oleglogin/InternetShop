@@ -23,6 +23,11 @@ public class User implements UserDetails {
 
 
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Product> products;
+
+
+
 
     private Date dateOfRegistration = new Date();
 
@@ -144,6 +149,14 @@ public class User implements UserDetails {
 
     public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override

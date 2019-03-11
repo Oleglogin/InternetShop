@@ -15,7 +15,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4 col-xl-2">
                         <div class="img-wrap">
                             <a href="/productData/${product.id}"><img src="${product.productImg}" alt="Card image" class="img-responsive img-thumbnail"/></a>
-                                <%--<h2>${product.user.username}</h2>--%>
+                                <h2>${product.user.username}</h2>
                             <h2>${product.title}</h2>
                             <h2>${product.discription}</h2>
                             <h2>${product.price}</h2>

@@ -41,6 +41,7 @@ public class AdminController {
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
 
+        product.setUser(byUserName);
         productService.save(product);
         return "redirect:/admin";    // add opportunity save product other users since ROLE_SELLER
     }

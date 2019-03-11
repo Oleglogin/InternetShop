@@ -24,6 +24,19 @@ public class Product {
 //    private List<ProductCategory> productCategory;
     private String productImg;
 
+
+
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private User user;
+
+
+
+
+
+
+
+
+
     public Product() {
 
     }
@@ -108,6 +121,17 @@ public class Product {
             e.printStackTrace();
         }
         this.productImg = "\\workImg\\" + multipartFile.getOriginalFilename();
+    }
+
+
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
