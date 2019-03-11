@@ -1,6 +1,10 @@
 package ua.lv.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,15 +19,16 @@ public class Product {
     private String title;
     private String description;
     private String count;
-    private BigDecimal price;
+    private double price;
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
 //    private List<ProductCategory> productCategory;
+    private String productImg;
 
     public Product() {
 
     }
 
-    public Product(int id, String title, String description, String count, BigDecimal price, List<ProductCategory> productCategory) {
+    public Product(int id, String title, String description, String count, double price, List<ProductCategory> productCategory) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -64,11 +69,11 @@ public class Product {
         this.count = count;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -90,6 +95,20 @@ public class Product {
 //        this.productCategory = productCategory;
 //    }
 
+
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(MultipartFile multipartFile) {
+        String path = System.getProperty("user.home") + File.separator + "Pictures\\";
+        try {
+            multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.productImg = "\\workImg\\" + multipartFile.getOriginalFilename();
+    }
 
     @Override
     public String toString() {
