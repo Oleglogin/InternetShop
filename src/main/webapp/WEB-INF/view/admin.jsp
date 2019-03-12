@@ -2,30 +2,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="tmp/header.jsp"%>
 
-<h2>Hello world</h2>
+<h2>Hello ${currentUser.username}</h2>
+
+<div class="container">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="/Main page">Main page</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/logout">Exit</a>
+        </li>
+        <li class="nav-item active">
+            <a href="/seller">Add product</a>
+        </li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs col-xl-10">
+                <div class="row">
+                    <c:forEach items="${userList}" var="user">
+                        <div class="container">
+                            <%--<div class="img-wrap">--%>
+                                <%--<h2>${user.id}</h2>--%>
+                                <h2>${user.username}</h2>
+                                <br/>
+                            <%--</div>--%>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<ul class="navbar-nav mr-auto">
+</div>
 
-    <li class="nav-item active">
-        <a class="nav-link" href="/registration">Sign up</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="/login">Sign in</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="/welcome">welcome</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="/logout">Exit</a>
-    </li>
-    <li class="nav-item active">
-        <c:if test="${!empty currentUser}">
-            <a href="/myProduct">${currentUser.username} Shop</a>
-        </c:if>
-        <a href="/seller">add product?</a>
-    </li>
-</ul>
 
 
 

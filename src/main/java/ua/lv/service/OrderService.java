@@ -1,7 +1,6 @@
 package ua.lv.service;
 
 import ua.lv.entity.Order;
-import ua.lv.entity.Product;
 
 import java.util.List;
 

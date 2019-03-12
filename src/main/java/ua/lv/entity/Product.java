@@ -20,28 +20,22 @@ public class Product {
     private String description;
     private String count;
     private double price;
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
-//    private List<ProductCategory> productCategory;
     private String productImg;
+    private String category;
 
 
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private User user;
-
-
-
-
-
-
-
+//    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase")
+//    private List<Purchase> purchases;
 
 
     public Product() {
 
     }
 
-    public Product(int id, String title, String description, String count, double price, List<ProductCategory> productCategory) {
+    public Product(int id, String title, String description, String count, double price) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -100,14 +94,14 @@ public class Product {
         this.description = description;
     }
 
-//    public List<ProductCategory> getProductCategory() {
-//        return productCategory;
-//    }
-//
-//    public void setProductCategory(List<ProductCategory> productCategory) {
-//        this.productCategory = productCategory;
-//    }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public String getProductImg() {
         return productImg;

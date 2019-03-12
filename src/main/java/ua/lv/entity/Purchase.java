@@ -3,23 +3,25 @@ package ua.lv.entity;
 import javax.persistence.*;
 
 /**
- * Created by User on 08.03.2019.
+ * Created by User on 12.03.2019.
  */
 @Entity
-public class ProductCategory {
+public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String titel;
+    private String count;
+
+//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//    private User user;
 //    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 //    private Product product;
 
-    public ProductCategory() {
+    public Purchase() {
     }
 
-    public ProductCategory(String titel, Product product) {
-        this.titel = titel;
-        //this.product = product;
+    public Purchase(String count) {
+        this.count = count;
     }
 
     public int getId() {
@@ -30,13 +32,21 @@ public class ProductCategory {
         this.id = id;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getCount() {
+        return count;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setCount(String count) {
+        this.count = count;
     }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
 //    public Product getProduct() {
 //        return product;
@@ -48,9 +58,9 @@ public class ProductCategory {
 
     @Override
     public String toString() {
-        return "ProductCategory{" +
+        return "Purchase{" +
                 "id=" + id +
-                ", titel='" + titel + '\'' +
+                ", count='" + count + '\'' +
                 '}';
     }
 }

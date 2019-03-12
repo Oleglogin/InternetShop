@@ -2,19 +2,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="tmp/header.jsp"%>
 
-<h2>Hello${currentUser.username}</h2>
-<c:if test="${currentUser.authority == 'ROLE_SELLER'}">
-    <a class="nav-link" href="/seller">seller</a>
-</c:if>
+<h2>Hello ${currentUser.username}</h2>
 
-<c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
-    <a class="nav-link" href="/admin">admin</a>
-</c:if>
+
+
 <div class="container">
     <ul class="menu">
         <li><a href="/registration">Sign up</a></li>
         <li><a href="/login">Sign in</a></li>
         <li><a href="/logout">Exit</a></li>
+        <li>
+            <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
+                <a class="nav-link" href="/seller">seller</a>
+            </c:if>
+        </li>
+        <li>
+            <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
+                <a class="nav-link" href="/admin">admin</a>
+            </c:if>
+        </li>
     </ul>
     <br>
     <br>

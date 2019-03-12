@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lv.dao.OrderDAO;
 import ua.lv.entity.Order;
-import ua.lv.entity.Product;
 import ua.lv.service.OrderService;
 
 import java.util.List;

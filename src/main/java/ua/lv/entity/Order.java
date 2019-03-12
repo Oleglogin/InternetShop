@@ -4,46 +4,45 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
 
 /**
- * Created by User on 08.03.2019.
+ * Created by User on 12.03.2019.
  */
 @Entity
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-//    private User user;
-//    private Product product;
-    private Date date;
+    private String count;
 
     public Order() {
     }
 
-
+    public Order(String count) {
+        this.count = count;
+    }
 
     public int getId() {
         return id;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-//    public Product getProduct() {
-//        return product;
-//    }
+    public String getCount() {
+        return count;
+    }
 
-    public Date getDate() {
-        return date;
+    public void setCount(String count) {
+        this.count = count;
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", date=" + date +
+                ", count='" + count + '\'' +
                 '}';
     }
 }

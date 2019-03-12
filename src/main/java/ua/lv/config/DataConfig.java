@@ -22,6 +22,7 @@ import java.util.Properties;
 @EnableJpaRepositories("ua.lv.dao")
 @EnableTransactionManagement
 public class DataConfig {
+
     private String driver = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://localhost/InternetShop";
     private String username = "root";

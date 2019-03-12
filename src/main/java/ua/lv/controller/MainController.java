@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ua.lv.entity.User;
+import ua.lv.service.ProductService;
 import ua.lv.service.UserService;
 
 /**
@@ -15,15 +16,14 @@ public class MainController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    ProductService productService;
 
 
     @GetMapping("/")
     public String toMainPage(Model model){
-//        model.addAttribute("emptyUser", new User());
-        return "start";
+        model.addAttribute("productList", productService.productList());
+        return "welcome";
     }
-    @GetMapping("/start")
-    public String goStart (Model model){
-        return "start";
-    }
+
 }
