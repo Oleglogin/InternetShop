@@ -27,8 +27,8 @@ public class Product {
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private User user;
-//    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase")
-//    private List<Purchase> purchases;
+    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Purchase> purchases;
 
 
     public Product() {
@@ -42,6 +42,14 @@ public class Product {
         this.count = count;
         this.price = price;
         //this.productCategory = productCategory;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
     }
 
     public int getId() {

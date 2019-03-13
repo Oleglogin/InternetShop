@@ -30,10 +30,6 @@ public class SellerController {
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser" ,byUserName);
         model.addAttribute("productList", productService.productList());
-
-
-
-
         return "seller";
     }
 }

@@ -31,7 +31,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-4 col-xl-2">
                             <div class="img-wrap">
                                 <%--<c:url value="/purchase/add" var="addPurchase"/>--%>
-                                <form:form action="/purchase/add" modelAttribute="emptyPurchase" method="post">
+                                <form:form action="/purchaseAdd/${product.id}/${currentUser.id}" modelAttribute="emptyPurchase">
                                 <div class="form-group col-md-3">
                                     <form:select path="count" class="form-control input-goal">
                                         <option>1</option>

@@ -12,10 +12,10 @@ public class Purchase {
     private int id;
     private String count;
 
-//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-//    private User user;
-//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-//    private Product product;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private User user;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Product product;
 
     public Purchase() {
     }
@@ -40,21 +40,21 @@ public class Purchase {
         this.count = count;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
 
-//    public Product getProduct() {
-//        return product;
-//    }
-//
-//    public void setProduct(Product product) {
-//        this.product = product;
-//    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     @Override
     public String toString() {

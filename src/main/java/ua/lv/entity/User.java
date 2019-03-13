@@ -26,17 +26,17 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Product> products;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase")
-//    private List<Purchase> purchases;
-//
-//
-//    public List<Purchase> getPurchases() {
-//        return purchases;
-//    }
-//
-//    public void setPurchases(List<Purchase> purchases) {
-//        this.purchases = purchases;
-//    }
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Purchase> purchases;
+
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
 
     private Date dateOfRegistration = new Date();
 
