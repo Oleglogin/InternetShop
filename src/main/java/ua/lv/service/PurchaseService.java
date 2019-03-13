@@ -11,6 +11,6 @@ public interface PurchaseService {
     void save(Purchase user);
     Purchase getUserById(int id);
     void delete(int id);
-    List<Purchase> listUsers();
+    List<Purchase> listPurchase();
     Purchase findByUserName(String username);
 }

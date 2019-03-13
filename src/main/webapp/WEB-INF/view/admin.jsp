@@ -25,7 +25,7 @@
                         <div class="container">
                             <%--<div class="img-wrap">--%>
                                 <%--<h2>${user.id}</h2>--%>
-                                <h2>${user.username}</h2>
+                                <h2><a href="userData/${user.id}">${user.username}</a></h2>
                                 <br/>
                             <%--</div>--%>
                         </div>

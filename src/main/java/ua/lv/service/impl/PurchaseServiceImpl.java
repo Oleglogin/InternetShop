@@ -35,7 +35,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
-    public List<Purchase> listUsers() {
+    public List<Purchase> listPurchase() {
         return purchaseDAO.findAll();
     }
 
