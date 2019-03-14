@@ -35,7 +35,36 @@
         </div>
     </div>
 
-
+    <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3">
+        <c:url value="/mainImg/add" var="addMainImg"/>
+        <form:form action="${addMainImg}" modelAttribute="emptyMainImg" enctype="multipart/form-data">
+            <div class="container-fluid">
+                <div class="row">
+                    <form:input path="name" id="name" placeholder="name"/>
+                </div>
+                <div class="form-group col-md-3">
+                    <form:select path="category" class="form-control input-goal">
+                        <option>notebook</option>
+                        <option>computer</option>
+                        <option>smartPhone</option>
+                        <option>tv</option>
+                        <option>audio</option>
+                    </form:select>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="file" name="pictures" class="form-control-file" formenctype="multipart/form-data" id="exampleformControlFile1">
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+            <form:input type="hidden" path="id" readonly="true"/>
+        </form:form>
+    </div>
 </div>
 
 

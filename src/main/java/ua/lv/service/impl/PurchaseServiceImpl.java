@@ -24,10 +24,6 @@ public class PurchaseServiceImpl implements PurchaseService {
         purchaseDAO.save(purchase);
     }
 
-    @Override
-    public Purchase getUserById(int id) {
-        return purchaseDAO.findOne(id);
-    }
 
     @Override
     public void delete(int id) {
@@ -39,8 +35,5 @@ public class PurchaseServiceImpl implements PurchaseService {
         return purchaseDAO.findAll();
     }
 
-    @Override
-    public Purchase findByUserName(String username) {
-        return null;
-    }
+
 }

@@ -9,34 +9,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ua.lv.entity.MainImg;
 import ua.lv.entity.Product;
 import ua.lv.entity.User;
-import ua.lv.service.ProductService;
+import ua.lv.service.MainImgService;
 import ua.lv.service.UserService;
 
 import java.security.Principal;
 
 /**
- * Created by User on 10.03.2019.
+ * Created by User on 14.03.2019.
  */
 @Controller
-public class AdminController {
-
+public class MainImgController {
 
     @Autowired
     UserService userService;
     @Autowired
-    ProductService productService;
+    MainImgService mainImgService;
 
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String toAdmin(Model model, Principal principal, @ModelAttribute("emptyMainImg")MainImg mainImg){
+
+    @RequestMapping(value = "/mainImg/add", method = RequestMethod.POST)
+    public String addProduct(@ModelAttribute("emptyMainImg")MainImg mainImg, Model model, Principal principal){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
-        model.addAttribute("currentProduct", new Product());
 
-        model.addAttribute("userList", userService.listUsers());
-        return "admin";
+
+
+        mainImgService.save(mainImg);
+        return "admin";    // add opportunity save product other users since ROLE_SELLER
     }
-
-
 }

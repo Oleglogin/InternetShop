@@ -1,9 +1,13 @@
 package ua.lv.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by User on 14.03.2019.
@@ -14,10 +18,31 @@ public class MainImg {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String Name;
+    private String name;
 
-    public MainImg(String name) {
-        Name = name;
+    private String pictures;
+
+    private String category;
+
+    private String menu;
+
+
+
+
+    public MainImg() {
+    }
+
+    public MainImg(String name, String pictures) {
+        this.name = name;
+        this.pictures = pictures;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 
     public int getId() {
@@ -29,10 +54,43 @@ public class MainImg {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
+    }
+
+    public String getPictures() {
+        return pictures;
+    }
+
+
+    public void setPictures(MultipartFile multipartFile) {
+        String path = System.getProperty("user.home") + File.separator + "Pictures\\";
+        try {
+            multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.pictures = "\\workImg\\" + multipartFile.getOriginalFilename();
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "MainImg{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pictures='" + pictures + '\'' +
+                ", category='" + category + '\'' +
+                '}';
     }
 }

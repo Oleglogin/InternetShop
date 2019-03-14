@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ua.lv.entity.User;
+import ua.lv.service.MainImgService;
 import ua.lv.service.ProductService;
 import ua.lv.service.UserService;
 
@@ -19,10 +20,13 @@ public class WelcomeController {
     UserService userService;
     @Autowired
     ProductService productService;
+    @Autowired
+    MainImgService mainImgService;
 
     @GetMapping(value = "/welcome")
     public String goWelcome(Model model, Principal principal){
         model.addAttribute("productList", productService.productList());
+        model.addAttribute("mainImgList", mainImgService.MainImgList());
 
         String principalName = principal.getName();
         User ByUserName = userService.findByUserName(principalName);
