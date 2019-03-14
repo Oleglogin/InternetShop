@@ -26,12 +26,7 @@
                         <span>${purchase.count}</span>
                         <br/>
                     </c:if>
-                    <%--<span>${purchase.user.username}</span>--%>
-                    <%--<br/>--%>
-                    <%--<span>${purchase.product.title}</span>--%>
-                    <%--<br/>--%>
-                    <%--<span>${purchase.count}</span>--%>
-                    <%--<br/>--%>
+
                 </c:forEach>
                 </div>
             </div>

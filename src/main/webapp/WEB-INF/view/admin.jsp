@@ -7,7 +7,7 @@
 <div class="container">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="/Main page">Main page</a>
+            <a class="nav-link" href="/welcome">Main page</a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="/logout">Exit</a>
