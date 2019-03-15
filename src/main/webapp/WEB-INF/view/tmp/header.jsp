@@ -47,4 +47,4 @@
             crossorigin="anonymous">
     </script>
 </head>
-<body>
+<body class="animsition">

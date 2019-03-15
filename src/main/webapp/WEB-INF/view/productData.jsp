@@ -2,11 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="tmp/header.jsp"%>
 
-<div class="container">
-    <header>
+<header header-v4>
         <!-- Header desktop -->
         <div class="container-menu-desktop">
-            <%--<div class="wrap-menu-desktop">--%>
+            <%--<div class="wrap-menu-desktop how-shadow1">--%>
                 <nav class="limiter-menu-desktop container">
 
                     <!-- Logo desktop -->
@@ -22,7 +21,7 @@
                             </li>
 
                             <li>
-                                <a href="welcome">Main page</a>
+                                <a href="/welcome">Main page</a>
                             </li>
 
 
@@ -51,34 +50,91 @@
                 </nav>
             <%--</div>--%>
         </div>
-    </header>
-</div>
-<div class="container">
-    <div class="col-xs-12  col-xl-9">
-        <img src="${product.productImg}" alt="img01" class="img-responsive img-thumbnail "/>
-        <h2>${product.title}</h2>
-    </div>
+</header>
 
+<!-- breadcrumb -->
+<div class="container">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+
+        <a href="/sortByCategory/${product.category}" class="stext-109 cl8 hov-cl1 trans-04">
+            ${product.category}
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <span class="stext-109 cl4">
+            ${product.title}
+        </span>
+    </div>
+</div>
+
+<!-- Product Detail -->
+<section class="sec-product-detail bg0 p-t-65 p-b-60">
     <div class="container">
-        <form:form action="/purchaseAdd/${product.id}/${currentUser.id}" modelAttribute="emptyPurchase">
-            <div class="form-group col-md-3">
-                <form:select path="count" class="form-control input-goal">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </form:select>
-                <div class="container">
-                    <div class="row">
-                        <div class="form-group col-md-8">
-                            <input type="submit" class="btn btn-primary">
+        <div class="row">
+
+            <div class="col-md-6 col-lg-7 p-b-30">
+                <div class="p-l-25 p-r-30 p-lr-0-lg">
+                    <div class="wrap-slick3-dots"></div>
+                    <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+                    <div class="slick3 gallery-lb">
+                        <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+                            <div class="wrap-pic-w pos-relative">
+                                <img src="${product.productImg}" alt="IMG-PRODUCT">
+
+                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${product.productImg}">
+                                    <i class="fa fa-expand"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <form:input type="hidden" path="id" readonly="true"/>
             </div>
-        </form:form>
+
+
+            <div class="col-md-6 col-lg-5 p-b-30">
+                <div class="p-r-50 p-t-5 p-lr-0-lg">
+
+                    <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                        ${product.title}
+                    </h4>
+
+                    <span class="mtext-106 cl2">
+							${product.price}
+						</span>
+
+                    <p class="stext-102 cl3 p-t-23">
+                        ${product.description}
+                    </p>
+                    <!--  ------------------------------------------------------->
+                    <form:form action="/purchaseAdd/${product.id}/${currentUser.id}" modelAttribute="emptyPurchase">
+                        <div class="flex-w flex-r-m p-b-10">
+                            <div class="size-203 flex-c-m respon6">
+                                Count
+                            </div>
+                            <div class="size-204 respon6-next">
+                                <div class="rs1-select2 bor8 bg0">
+                                    <form:select path="count" class="js-select2" name="time">
+                                        <option>Choose an option</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </form:select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                            </div>
+                            <input class="p-t-33">
+
+                            <form:input type="hidden" path="id" readonly="true"/>
+                            <input type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+
+                        </div>
+                    </form:form>
+                    <!--  ------------------------------------------------------->
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 <%@include file="tmp/footer.jsp" %>

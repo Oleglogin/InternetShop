@@ -1,5 +1,6 @@
 package ua.lv.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,6 +50,25 @@ public class ProductController {
         model.addAttribute("emptyPurchase", new Purchase());
         model.addAttribute("product", productService.getByProductId(id));
         return "productData";
+    }
+
+
+    @RequestMapping(value = "/sortByCategory/{category}", method = RequestMethod.GET)
+    public String sortByCategory(@PathVariable("category")String category, Model model, Principal principal){
+        String principalName = principal.getName();
+        User byUserName = userService.findByUserName(principalName);
+        model.addAttribute("currentUser", byUserName);
+
+        model.addAttribute("productList",productService.categoryProduct(category));
+
+        return "welcome";
+    }
+
+
+    @RequestMapping(value = "/productRemove/{id}")
+    public String productRemove(@PathVariable("id") int id){
+        productService.delete(id);
+        return "redirect:/welcome";
     }
 
 }

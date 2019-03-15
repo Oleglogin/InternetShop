@@ -49,6 +49,8 @@
                         <option>smartPhone</option>
                         <option>tv</option>
                         <option>audio</option>
+                        <option>preview</option>
+                        <option>mainPreview</option>
                     </form:select>
                 </div>
             </div>
