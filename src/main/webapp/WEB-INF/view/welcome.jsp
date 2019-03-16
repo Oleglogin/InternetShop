@@ -20,9 +20,9 @@
                             <a href="/welcome">Home</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
+                                    <%--<c:if test="${currentUser.authority == 'ROLE_SELLER'}">--%>
                                         <a href="/seller">seller</a>
-                                    </c:if>
+                                    <%--</c:if>--%>
                                 </li>
                                 <li>
                                     <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
@@ -32,11 +32,11 @@
                             </ul>
                         </li>
 
-                        <li>
+                        <li class="label1" data-label1="hot">
                             <a href="product.html">Shop</a>
                         </li>
 
-                        <li class="label1" data-label1="hot">
+                        <li>
                             <a href="/registration">Sign up</a>
                         </li>
 
@@ -168,29 +168,29 @@
 
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                    All Products
-                </button>
+                <div class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                     <a href="/welcome">All Products</a>
+                </div>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                    Women
-                </button>
+                <div class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".smartphone">
+                    <a href="sortByCategory/smartphone">smartphone</a>
+                </div>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                    Men
-                </button>
+                <div class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".computer">
+                    <a href="sortByCategory/computer">computer</a>
+                </div>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-                    Bag
-                </button>
+                <div class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+                    <a href="sortByCategory/notebook">notebook</a>
+                </div>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-                    Shoes
-                </button>
+                <div class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+                    <a href="sortByCategory/tv">tv</a>
+                </div>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-                    Watches
-                </button>
+                <div class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+                    <a href="sortByCategory/audio">audio</a>
+                </div>
             </div>
             <div class="flex-w flex-c-m m-tb-10">
                 <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">

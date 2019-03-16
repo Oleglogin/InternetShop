@@ -1,6 +1,7 @@
 package ua.lv.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by User on 12.03.2019.
@@ -16,6 +17,8 @@ public class Purchase {
     private User user;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Product product;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase" )
+    private List<Orders> orderss;
 
     public Purchase() {
     }
@@ -54,6 +57,14 @@ public class Purchase {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public List<Orders> getOrderss() {
+        return orderss;
+    }
+
+    public void setOrderss(List<Orders> orderss) {
+        this.orderss = orderss;
     }
 
     @Override

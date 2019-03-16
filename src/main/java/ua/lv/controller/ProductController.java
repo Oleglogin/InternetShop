@@ -70,6 +70,7 @@ public class ProductController {
     }
 
 
+
     @RequestMapping(value = "/productRemove/{id}")
     public String productRemove(@PathVariable("id") int id){
         productService.delete(id);

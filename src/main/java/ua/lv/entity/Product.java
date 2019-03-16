@@ -5,7 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -29,6 +28,9 @@ public class Product {
     private User user;
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Purchase> purchases;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product" )
+    private List<Orders> orderss;
 
 
     public Product() {
@@ -134,6 +136,14 @@ public class Product {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Orders> getOrderss() {
+        return orderss;
+    }
+
+    public void setOrderss(List<Orders> orderss) {
+        this.orderss = orderss;
     }
 
     @Override

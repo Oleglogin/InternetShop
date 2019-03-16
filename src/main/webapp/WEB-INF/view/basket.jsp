@@ -14,7 +14,7 @@
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
-                        <li class="active-menu">
+                        <li class="active-menu label1" data-label1="hot">
                             <a href="/welcome">Home</a>
                             <ul class="sub-menu">
                                 <li>
@@ -34,7 +34,7 @@
                             <a href="product.html">${currentUser.username} hello</a>
                         </li>
 
-                        <li class="label1" data-label1="hot">
+                        <li>
                             <a href="/registration">Sign up</a>
                         </li>
 
@@ -56,10 +56,6 @@
                 <div class="wrap-icon-header flex-w flex-r-m">
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                         <i class="zmdi zmdi-search"></i>
-                    </div>
-
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBascet}">
-                        <a href="/baket"><i class="zmdi zmdi-shopping-cart"></i></a>
                     </div>
 
                     <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
@@ -98,11 +94,10 @@
                     <div class="wrap-table-shopping-cart">
                         <table class="table-shopping-cart">
                             <tr class="table_head">
-                                <th class="column-1">IMG</th>
-                                <th class="column-2">Product</th>
-                                <th class="column-3">Price</th>
-                                <th class="column-4">Quantity</th>
-                                <th class="column-5">Total</th>
+                                <th class="column-1">Product</th>
+                                <th class="column-2">Price</th>
+                                <th class="column-3">Quantity</th>
+                                <th class="column-4">Total</th>
                                 <th class="column-5">Delete</th>
                             </tr>
                             <c:forEach items="${purchaseList}" var="purchase">
@@ -113,22 +108,25 @@
                                                 <img src="${purchase.product.productImg}" alt="IMG">
                                             </div>
                                         </td>
-                                        <td class="column-2">${purchase.product.title}</td>
-                                        <td class="column-3">$ ${purchase.product.price}</td>
-                                        <td class="column-4">
-                                            <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                    <i class="fs-16 zmdi zmdi-minus"></i>
-                                                </div>
+                                        <%--<td class="column-2">${purchase.product.title}</td>--%>
+                                        <td class="column-2">$ ${purchase.product.price}</td>
 
-                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="${purchase.count}">
 
-                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                    <i class="fs-16 zmdi zmdi-plus"></i>
-                                                </div>
-                                            </div>
+                                        <td class="column-3">${purchase.count}
+                                            <%--<div class="wrap-num-product flex-w m-l-auto m-r-0">--%>
+                                                <%--<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">--%>
+                                                    <%--<i class="fs-16 zmdi zmdi-minus"></i>--%>
+                                                <%--</div>--%>
+
+                                                <%--<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="${purchase.count}">--%>
+
+                                                <%--<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">--%>
+                                                    <%--<i class="fs-16 zmdi zmdi-plus"></i>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
                                         </td>
-                                        <td class="column-5">$ {${purchase.product.price} * ${purchase.count}}</td>
+                                        <td class="column-4">$ ${purchase.product.price} * ${purchase.count} </td>
+
                                         <td class="column-5"><a href="<c:url value='/removeProductFromPurchase/${purchase.id}'/> ">Delete</a></td>
                                     </tr>
                                 </c:if>

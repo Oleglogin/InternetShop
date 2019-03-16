@@ -21,7 +21,11 @@ public class User implements UserDetails {
     @Transient
     private String confirmPassword;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private Account account;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user" )
+    private List<Orders> orderss;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Product> products;
@@ -166,6 +170,22 @@ public class User implements UserDetails {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public List<Orders> getOrderss() {
+        return orderss;
+    }
+
+    public void setOrderss(List<Orders> orderss) {
+        this.orderss = orderss;
     }
 
     @Override

@@ -67,7 +67,7 @@
                                     <form:select path="category" class="form-control input-goal">
                                         <option>notebook</option>
                                         <option>computer</option>
-                                        <option>smartfon</option>
+                                        <option>smartphone</option>
                                         <option>tv</option>
                                         <option>audio</option>
                                     </form:select>

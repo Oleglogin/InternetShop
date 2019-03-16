@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import ua.lv.entity.Purchase;
 import ua.lv.entity.User;
 import ua.lv.service.PurchaseService;
@@ -31,6 +32,9 @@ public class BasketController {
         model.addAttribute("currentUser", userService.findByUserName(principalName));
         model.addAttribute("countProductInBascet", purchaseService.countProductsByUser(buuserName.getId()));
         model.addAttribute("purchaseList", purchaseService.listPurchase());
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("");
 
         return "basket";
     }
