@@ -11,5 +11,6 @@ public interface PurchaseService {
     void save(Purchase user);
     void delete(int id);
     List<Purchase> listPurchase();
+    int countProductsByUser(int id);
 
 }

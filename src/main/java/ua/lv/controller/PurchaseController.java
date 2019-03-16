@@ -38,4 +38,10 @@ public class PurchaseController {
         purchaseServise.save(purchase);
         return "redirect:/welcome";
     }
+
+    @RequestMapping(value = "/removeProductFromPurchase/{id}", method = RequestMethod.GET)
+    public String remove(@PathVariable("id") int id){
+        purchaseServise.delete(id);
+        return "basket";
+    }
 }

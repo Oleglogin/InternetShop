@@ -12,6 +12,7 @@ import ua.lv.entity.Product;
 import ua.lv.entity.Purchase;
 import ua.lv.entity.User;
 import ua.lv.service.ProductService;
+import ua.lv.service.PurchaseService;
 import ua.lv.service.UserService;
 
 import java.security.Principal;
@@ -26,6 +27,8 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
+    @Autowired
+    PurchaseService purchaseService;
 
     @RequestMapping(value = "/product/add", method = RequestMethod.POST)
     public String addProduct(@ModelAttribute("emptyProduct") Product product, Model model, Principal principal){
@@ -47,6 +50,8 @@ public class ProductController {
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
 
+
+        model.addAttribute("countProductInBascet",purchaseService.countProductsByUser(byUserName.getId()));
         model.addAttribute("emptyPurchase", new Purchase());
         model.addAttribute("product", productService.getByProductId(id));
         return "productData";
@@ -68,7 +73,7 @@ public class ProductController {
     @RequestMapping(value = "/productRemove/{id}")
     public String productRemove(@PathVariable("id") int id){
         productService.delete(id);
-        return "redirect:/welcome";
+        return "redirect:/admin";
     }
 
 }

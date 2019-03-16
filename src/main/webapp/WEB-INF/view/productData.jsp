@@ -38,7 +38,7 @@
                             <i class="zmdi zmdi-search"></i>
                         </div>
 
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBascet}">
                             <i class="zmdi zmdi-shopping-cart"></i>
                         </div>
 
@@ -114,8 +114,7 @@
                             </div>
                             <div class="size-204 respon6-next">
                                 <div class="rs1-select2 bor8 bg0">
-                                    <form:select path="count" class="js-select2" name="time">
-                                        <option>Choose an option</option>
+                                    <form:select path="count" class="js-select2">
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -127,8 +126,8 @@
                             <input class="p-t-33">
 
                             <form:input type="hidden" path="id" readonly="true"/>
-                            <input type="submit" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-
+                            <input type="submit" value="Ok" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                     </form:form>
                     <!--  ------------------------------------------------------->

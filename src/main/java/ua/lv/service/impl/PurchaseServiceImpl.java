@@ -35,5 +35,8 @@ public class PurchaseServiceImpl implements PurchaseService {
         return purchaseDAO.findAll();
     }
 
-
+    @Override
+    public int countProductsByUser(int id) {
+        return purchaseDAO.countProductsByUser(id);
+    }
 }

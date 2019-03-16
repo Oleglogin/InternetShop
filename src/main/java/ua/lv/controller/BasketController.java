@@ -1,0 +1,37 @@
+package ua.lv.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import ua.lv.entity.Purchase;
+import ua.lv.entity.User;
+import ua.lv.service.PurchaseService;
+import ua.lv.service.UserService;
+
+import java.security.Principal;
+
+/**
+ * Created by User on 16.03.2019.
+ */
+@Controller
+public class BasketController {
+
+    @Autowired
+    UserService userService;
+    @Autowired
+    PurchaseService purchaseService;
+
+
+    @RequestMapping(value = "/basket", method = RequestMethod.GET)
+    public String toBasket(Model model, Principal principal){
+        String principalName = principal.getName();
+        User buuserName = userService.findByUserName(principalName);
+        model.addAttribute("currentUser", userService.findByUserName(principalName));
+        model.addAttribute("countProductInBascet", purchaseService.countProductsByUser(buuserName.getId()));
+        model.addAttribute("purchaseList", purchaseService.listPurchase());
+
+        return "basket";
+    }
+}
