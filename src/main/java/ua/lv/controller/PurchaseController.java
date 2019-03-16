@@ -35,6 +35,11 @@ public class PurchaseController {
         User userId = userService.getUserById(UserId);
         purchase.setProduct(productId);
         purchase.setUser(userId);
+
+        int price = ((int) purchase.getProduct().getPrice());
+        int amount = purchase.getCount();
+        purchase.setAmount(price * amount);
+
         purchaseServise.save(purchase);
         return "redirect:/basket";
     }

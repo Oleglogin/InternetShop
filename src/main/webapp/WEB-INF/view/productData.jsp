@@ -5,7 +5,6 @@
 <header header-v4>
         <!-- Header desktop -->
         <div class="container-menu-desktop">
-            <%--<div class="wrap-menu-desktop how-shadow1">--%>
                 <nav class="limiter-menu-desktop container">
 
                     <!-- Logo desktop -->
@@ -17,18 +16,11 @@
                     <div class="menu-desktop">
                         <ul class="main-menu">
                             <li>
-                                <h2>Hello ${currentUser.username}</h2>
-                            </li>
-
-                            <li>
                                 <a href="/welcome">Main page</a>
                             </li>
-
-
                             <li class="label1" data-label1="hot">
                                 <a href="/seller">Add product</a>
                             </li>
-
                         </ul>
                     </div>
 
@@ -48,7 +40,6 @@
                     </div>
 
                 </nav>
-            <%--</div>--%>
         </div>
 </header>
 
@@ -108,27 +99,25 @@
                     </p>
                     <!--  ------------------------------------------------------->
                     <form:form action="/purchaseAdd/${product.id}/${currentUser.id}" modelAttribute="emptyPurchase">
-                        <div class="flex-w flex-r-m p-b-10">
-                            <div class="size-203 flex-c-m respon6">
-                                Count
-                            </div>
-                            <div class="size-204 respon6-next">
-                                <div class="rs1-select2 bor8 bg0">
-                                    <form:select path="count" class="js-select2">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </form:select>
-                                    <div class="dropDownSelect2"></div>
+                        <%--<div class="flex-w flex-r-m p-b-10">--%>
+                            <div class="wrap-num-product flex-w m-l-auto m-r-0">
+                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                </div>
+
+                                <form:input path="count" class="mtext-104 cl3 txt-center num-product"  name="num-product1" value="0"></form:input>
+
+                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                    <i class="fs-16 zmdi zmdi-plus"></i>
                                 </div>
                             </div>
+                            <div class="dropDownSelect2"></div>
                             <input class="p-t-33">
 
                             <form:input type="hidden" path="id" readonly="true"/>
-                            <input type="submit" value="Ok" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                            <input type="submit" value="Add to Cart" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </div>
+                        <%--</div>--%>
                     </form:form>
                     <!--  ------------------------------------------------------->
                 </div>

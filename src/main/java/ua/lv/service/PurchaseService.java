@@ -12,5 +12,7 @@ public interface PurchaseService {
     void delete(int id);
     List<Purchase> listPurchase();
     int countProductsByUser(int id);
+    int amountInBasket(int id);
 
+    int countProductsByBasket(int count);
 }

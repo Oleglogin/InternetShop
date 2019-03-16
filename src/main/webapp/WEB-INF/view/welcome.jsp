@@ -29,6 +29,9 @@
                                         <a href="/admin">admin</a>
                                     </c:if>
                                 </li>
+                                <li>
+                                    <a href="/userData/${currentUser.id}">Home ${currentUser.username}</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -60,7 +63,7 @@
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBascet}">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBasket}">
                         <a href="/basket"><i class="zmdi zmdi-shopping-cart"></i></a>
                     </div>
 

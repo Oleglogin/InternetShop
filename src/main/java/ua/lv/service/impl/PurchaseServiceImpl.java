@@ -39,4 +39,14 @@ public class PurchaseServiceImpl implements PurchaseService {
     public int countProductsByUser(int id) {
         return purchaseDAO.countProductsByUser(id);
     }
+
+    @Override
+    public int amountInBasket(int id) {
+        return purchaseDAO.amountInBasket(id);
+    }
+
+    @Override
+    public int countProductsByBasket(int count) {
+        return purchaseDAO.countProductsByUser(count);
+    }
 }

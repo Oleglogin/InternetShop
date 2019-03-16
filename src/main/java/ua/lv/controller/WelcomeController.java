@@ -36,7 +36,7 @@ public class WelcomeController {
 
         model.addAttribute("productList", productService.productList());
         model.addAttribute("mainImgList", mainImgService.MainImgList());
-        model.addAttribute("countProductInBascet", purchaseService.countProductsByUser(ByUserName.getId()));
+        model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(ByUserName.getId()));
 
 
         return "/welcome";

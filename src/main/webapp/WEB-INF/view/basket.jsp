@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="tmp/header.jsp" %>
 <header>
     <!-- Header desktop -->
@@ -15,7 +16,7 @@
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li class="active-menu label1" data-label1="hot">
-                            <a href="/welcome">Home</a>
+                            <a href="/welcome">${currentUser.username} Home</a>
                             <ul class="sub-menu">
                                 <li>
                                     <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
@@ -110,23 +111,8 @@
                                         </td>
                                         <%--<td class="column-2">${purchase.product.title}</td>--%>
                                         <td class="column-2">$ ${purchase.product.price}</td>
-
-
-                                        <td class="column-3">${purchase.count}
-                                            <%--<div class="wrap-num-product flex-w m-l-auto m-r-0">--%>
-                                                <%--<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">--%>
-                                                    <%--<i class="fs-16 zmdi zmdi-minus"></i>--%>
-                                                <%--</div>--%>
-
-                                                <%--<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="${purchase.count}">--%>
-
-                                                <%--<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">--%>
-                                                    <%--<i class="fs-16 zmdi zmdi-plus"></i>--%>
-                                                <%--</div>--%>
-                                            <%--</div>--%>
-                                        </td>
-                                        <td class="column-4">$ ${purchase.product.price} * ${purchase.count} </td>
-
+                                        <td class="column-3">${purchase.count}</td>
+                                        <td class="column-4">$ ${purchase.amount} </td>
                                         <td class="column-5"><a href="<c:url value='/removeProductFromPurchase/${purchase.id}'/> ">Delete</a></td>
                                     </tr>
                                 </c:if>
@@ -143,50 +129,41 @@
                                 Apply coupon
                             </div>
                         </div>
-
-                        <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-                            Update Cart
-                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
                 <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                    <h4 class="mtext-109 cl2 p-b-30">
-                        Cart Totals
-                    </h4>
+                    <%--<form:form action="/saveOrder" modelAttribute="emptyOrders" >--%>
+
+                    <%--</form:form>--%>
+                    <h4 class="mtext-109 cl2 p-b-30">Cart Totals</h4>
 
                     <div class="flex-w flex-t bor12 p-b-13">
                         <div class="size-208">
-								<span class="stext-110 cl2">
-									Subtotal:
-								</span>
+								<span class="stext-110 cl2">Subtotal:</span>
                         </div>
-
                         <div class="size-209">
-								<span class="mtext-110 cl2">
-									$79.65
-								</span>
+                            <%--<c:forEach items="${purchaseList}" var="purchase">--%>
+                                <%--<c:if test="${currentUser.id == purchase.user.id}">--%>
+                                    <span class="mtext-110 cl2">$ ${amountPrice}</span>
+                                <%--</c:if>--%>
+                            <%--</c:forEach>--%>
+
                         </div>
                     </div>
 
                     <div class="flex-w flex-t bor12 p-t-15 p-b-30">
                         <div class="size-208 w-full-ssm">
-								<span class="stext-110 cl2">
-									Shipping:
-								</span>
+								<span class="stext-110 cl2">Shipping:</span>
                         </div>
 
                         <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                            <p class="stext-111 cl6 p-t-2">
-                                There are no shipping methods available. Please double check your address, or contact us if you need any help.
-                            </p>
+                            <p class="stext-111 cl6 p-t-2">There are no shipping methods available. Please double check your address, or contact us if you need any help.</p>
 
                             <div class="p-t-15">
-									<span class="stext-112 cl8">
-										Calculate Shipping
-									</span>
+									<span class="stext-112 cl8">Calculate Shipping</span>
 
                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
                                     <select class="js-select2" name="time">
@@ -224,7 +201,7 @@
 
                         <div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									$79.65
+									$ ${amountPrice}
 								</span>
                         </div>
                     </div>

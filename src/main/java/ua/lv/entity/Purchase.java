@@ -11,19 +11,21 @@ public class Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String count;
+    private int count;
+    private int amount;
+
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private User user;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Product product;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase" )
-    private List<Orders> orderss;
+    private List<Orders> orders;
 
     public Purchase() {
     }
 
-    public Purchase(String count) {
+    public Purchase(int count) {
         this.count = count;
     }
 
@@ -35,11 +37,11 @@ public class Purchase {
         this.id = id;
     }
 
-    public String getCount() {
+    public int getCount() {
         return count;
     }
 
-    public void setCount(String count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
@@ -59,12 +61,20 @@ public class Purchase {
         this.product = product;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public List<Orders> getOrderss() {
-        return orderss;
+        return orders;
     }
 
     public void setOrderss(List<Orders> orderss) {
-        this.orderss = orderss;
+        this.orders = orderss;
     }
 
     @Override
