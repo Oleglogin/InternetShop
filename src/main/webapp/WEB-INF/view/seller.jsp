@@ -74,6 +74,9 @@
                                     <span>${product.discription}</span>
                                     <span>${product.price}</span>
                                     <span>${product.count}</span>
+                                    <span>
+                                        <a href="productEdit/${currentUser.id}">edit</a>
+                                    </span>
                                 </div>
                             </div>
                         </c:if>

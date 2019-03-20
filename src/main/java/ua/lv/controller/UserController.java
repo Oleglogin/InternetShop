@@ -48,17 +48,4 @@ public class UserController {
     }
 
 
-//
-//    @ModelAttribute(value = "/editAccount/{id}")
-//    public String editAccount(Model model, Principal principal,
-//                              @PathVariable("id") int id){
-//        String principalName = principal.getName();
-//        User byUserName = userService.findByUserName(principalName);
-//        model.addAttribute("currentUser",byUserName);
-//
-//        model.addAttribute("emptyAccount", accountService.getAccountById(id));
-//
-//        return "userData";
-//    }
-
 }

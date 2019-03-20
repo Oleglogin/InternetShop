@@ -79,4 +79,14 @@ public class ProductController {
         return "redirect:/admin";
     }
 
+    @RequestMapping(value = "/productEdit/{id}", method = RequestMethod.GET)
+    public String productEdit(@PathVariable("id")int id,
+                              Model model, Principal principal){
+        String principalName = principal.getName();
+        User byUserName = userService.findByUserName(principalName);
+        model.addAttribute("currentUser" , byUserName);
+
+        model.addAttribute("emptyProduct", productService.getByProductId(id));
+        return "seller";
+    }
 }
