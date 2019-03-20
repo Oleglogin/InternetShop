@@ -31,10 +31,12 @@ public class ProductController {
     PurchaseService purchaseService;
 
     @RequestMapping(value = "/product/add", method = RequestMethod.POST)
-    public String addProduct(@ModelAttribute("emptyProduct") Product product, Model model, Principal principal){
+    public String addProduct(@ModelAttribute("emptyProduct") Product product,
+                             Model model,
+                             Principal principal){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
-        model.addAttribute("currentUser", byUserName);
+//        model.addAttribute("currentUser", byUserName);
 
         product.setUser(byUserName);
 
@@ -51,7 +53,7 @@ public class ProductController {
         model.addAttribute("currentUser", byUserName);
 
 
-        model.addAttribute("countProductInBascet",purchaseService.countProductsByUser(byUserName.getId()));
+        model.addAttribute("countProductInBasket",purchaseService.countProductsByUser(byUserName.getId()));
         model.addAttribute("emptyPurchase", new Purchase());
         model.addAttribute("product", productService.getByProductId(id));
         return "productData";

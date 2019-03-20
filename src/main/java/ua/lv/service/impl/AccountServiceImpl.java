@@ -38,4 +38,9 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> accountList() {
         return accountDAO.findAll();
     }
+
+    @Override
+    public int countAccount(int id) {
+        return accountDAO.countAccount(id);
+    }
 }

@@ -2,71 +2,61 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="tmp/header.jsp" %>
 <header>
-    <!-- Header desktop -->
-    <%--<div class="container-menu-desktop">--%>
-        <%--<div class="wrap-menu-desktop">--%>
-            <nav class="limiter-menu-desktop container">
+    <nav class="limiter-menu-desktop container">
 
-                <!-- Logo desktop -->
-                <a href="#" class="logo">
-                    <img src="../../resources/images/icons/logo-01.png" alt="IMG-LOGO">
-                </a>
+        <!-- Logo desktop -->
+        <a href="#" class="logo">
+            <img src="../../resources/images/icons/logo-01.png" alt="IMG-LOGO">
+        </a>
+        <!-- Menu desktop -->
+        <div class="menu-desktop">
+            <ul class="main-menu">
+                <li class="active-menu label1" data-label1="hot">
+                    <li>
+                        <a href="/welcome">Main</a>
+                    </li>
+                    <li>
+                        <a href="/userData/${currentUser.id}">${currentUser.username} Home</a>
+                    </li>
 
-                <!-- Menu desktop -->
-                <div class="menu-desktop">
-                    <ul class="main-menu">
-                        <li class="active-menu label1" data-label1="hot">
-                            <a href="/welcome">${currentUser.username} Home</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
-                                        <a href="/seller">seller</a>
-                                    </c:if>
-                                </li>
-                                <li>
-                                    <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
-                                        <a href="/admin">admin</a>
-                                    </c:if>
-                                </li>
-                            </ul>
-                        </li>
-
+                    <ul class="sub-menu">
                         <li>
-                            <a href="product.html">${currentUser.username} hello</a>
+                            <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
+                                <a href="/seller">seller</a>
+                            </c:if>
                         </li>
-
                         <li>
-                            <a href="/registration">Sign up</a>
-                        </li>
-
-                        <li>
-                            <a href="/login">Sign in</a>
-                        </li>
-
-                        <li>
-                            <a href="logout">Exit</a>
-                        </li>
-
-                        <li>
-                            <a href="contact.html">Contact</a>
+                            <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
+                                <a href="/admin">admin</a>
+                            </c:if>
                         </li>
                     </ul>
-                </div>
+                </li>
+                <li>
+                    <a href="/registration">Sign up</a>
+                </li>
+                <li>
+                    <a href="/login">Sign in</a>
+                </li>
+                <li>
+                    <a href="/logout">Exit</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
 
-                <!-- Icon header -->
-                <div class="wrap-icon-header flex-w flex-r-m">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
-
-                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-                        <i class="zmdi zmdi-favorite-outline"></i>
-                    </a>
-                </div>
-
-            </nav>
-        <%--</div>--%>
-    <%--</div>--%>
+        <!-- Icon header -->
+        <div class="wrap-icon-header flex-w flex-r-m">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                <i class="zmdi zmdi-search"></i>
+            </div>
+            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                <i class="zmdi zmdi-favorite-outline"></i>
+            </a>
+        </div>
+    </nav>
 </header>
 
 
@@ -74,14 +64,12 @@
 <!-- breadcrumb -->
 <div class="container">
     <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-        <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+        <a href="/welcome" class="stext-109 cl8 hov-cl1 trans-04">
             Home
             <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
         </a>
 
-        <span class="stext-109 cl4">
-				Shoping Cart
-			</span>
+        <span class="stext-109 cl4">Shoping Cart</span>
     </div>
 </div>
 
@@ -101,8 +89,8 @@
                                 <th class="column-4">Total</th>
                                 <th class="column-5">Delete</th>
                             </tr>
-                            <c:forEach items="${purchaseList}" var="purchase">
-                                <c:if test="${currentUser.id == purchase.user.id}">
+                            <%--<c:forEach items="${purchaseList}" var="purchase">--%>
+                            <c:forEach items="${purchaseListInBasket}" var="purchase">
                                     <tr class="table_row">
                                         <td class="column-1">
                                             <div class="how-itemcart1">
@@ -115,7 +103,6 @@
                                         <td class="column-4">$ ${purchase.amount} </td>
                                         <td class="column-5"><a href="<c:url value='/removeProductFromPurchase/${purchase.id}'/> ">Delete</a></td>
                                     </tr>
-                                </c:if>
                             </c:forEach>
 
                         </table>
@@ -142,15 +129,10 @@
 
                     <div class="flex-w flex-t bor12 p-b-13">
                         <div class="size-208">
-								<span class="stext-110 cl2">Subtotal:</span>
+                            <span class="stext-110 cl2">Subtotal:</span>
                         </div>
                         <div class="size-209">
-                            <%--<c:forEach items="${purchaseList}" var="purchase">--%>
-                                <%--<c:if test="${currentUser.id == purchase.user.id}">--%>
-                                    <span class="mtext-110 cl2">$ ${amountPrice}</span>
-                                <%--</c:if>--%>
-                            <%--</c:forEach>--%>
-
+                            <span class="mtext-110 cl2">$ ${amountPrice}</span>
                         </div>
                     </div>
 
@@ -158,13 +140,10 @@
                         <div class="size-208 w-full-ssm">
 								<span class="stext-110 cl2">Shipping:</span>
                         </div>
-
                         <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
                             <p class="stext-111 cl6 p-t-2">There are no shipping methods available. Please double check your address, or contact us if you need any help.</p>
-
                             <div class="p-t-15">
 									<span class="stext-112 cl8">Calculate Shipping</span>
-
                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
                                     <select class="js-select2" name="time">
                                         <option>Select a country...</option>

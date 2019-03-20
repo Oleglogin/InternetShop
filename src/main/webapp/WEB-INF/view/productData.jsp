@@ -2,45 +2,65 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="tmp/header.jsp"%>
 
-<header header-v4>
-        <!-- Header desktop -->
-        <div class="container-menu-desktop">
-                <nav class="limiter-menu-desktop container">
+<header>
+    <nav class="limiter-menu-desktop container">
 
-                    <!-- Logo desktop -->
-                    <a href="#" class="logo">
-                        <img src="../../resources/images/icons/logo-01.png" alt="IMG-LOGO">
-                    </a>
+        <!-- Logo desktop -->
+        <a href="#" class="logo">
+            <img src="../../resources/images/icons/logo-01.png" alt="IMG-LOGO">
+        </a>
+        <!-- Menu desktop -->
+        <div class="menu-desktop">
+            <ul class="main-menu">
+                <li class="active-menu label1" data-label1="hot">
+                <li>
+                    <a href="/welcome">Main</a>
+                </li>
+                <li>
+                    <a href="/userData/${currentUser.id}">${currentUser.username} Home</a>
+                </li>
 
-                    <!-- Menu desktop -->
-                    <div class="menu-desktop">
-                        <ul class="main-menu">
-                            <li>
-                                <a href="/welcome">Main page</a>
-                            </li>
-                            <li class="label1" data-label1="hot">
-                                <a href="/seller">Add product</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Icon header -->
-                    <div class="wrap-icon-header flex-w flex-r-m">
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                            <i class="zmdi zmdi-search"></i>
-                        </div>
-
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBascet}">
-                            <i class="zmdi zmdi-shopping-cart"></i>
-                        </div>
-
-                        <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-                            <i class="zmdi zmdi-favorite-outline"></i>
-                        </a>
-                    </div>
-
-                </nav>
+                <ul class="sub-menu">
+                    <li>
+                        <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
+                            <a href="/seller">seller</a>
+                        </c:if>
+                    </li>
+                    <li>
+                        <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
+                            <a href="/admin">admin</a>
+                        </c:if>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                    <a href="/registration">Sign up</a>
+                </li>
+                <li>
+                    <a href="/login">Sign in</a>
+                </li>
+                <li>
+                    <a href="/logout">Exit</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
         </div>
+
+        <!-- Icon header -->
+        <div class="wrap-icon-header flex-w flex-r-m">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBasket}">
+                <a href="/basket"><i class="zmdi zmdi-shopping-cart"></i></a>
+            </div>
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                <i class="zmdi zmdi-search"></i>
+            </div>
+            <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                <li class="zmdi zmdi-favorite-outline"></li>
+            </a>
+        </div>
+    </nav>
 </header>
 
 <!-- breadcrumb -->
@@ -72,7 +92,6 @@
                         <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
                             <div class="wrap-pic-w pos-relative">
                                 <img src="${product.productImg}" alt="IMG-PRODUCT">
-
                                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${product.productImg}">
                                     <i class="fa fa-expand"></i>
                                 </a>
@@ -105,14 +124,14 @@
                                     <i class="fs-16 zmdi zmdi-minus"></i>
                                 </div>
 
-                                <form:input path="count" class="mtext-104 cl3 txt-center num-product"  name="num-product1" value="0"></form:input>
+                                <form:input path="count" class="mtext-104 cl3 txt-center num-product"  name="num-product1" value="0"/>
 
                                 <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                     <i class="fs-16 zmdi zmdi-plus"></i>
                                 </div>
                             </div>
                             <div class="dropDownSelect2"></div>
-                            <input class="p-t-33">
+                            <%--<input class="p-t-33">--%>
 
                             <form:input type="hidden" path="id" readonly="true"/>
                             <input type="submit" value="Add to Cart" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">

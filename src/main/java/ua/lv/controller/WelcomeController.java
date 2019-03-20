@@ -33,12 +33,9 @@ public class WelcomeController {
         String principalName = principal.getName();
         User ByUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", ByUserName);
-
         model.addAttribute("productList", productService.productList());
         model.addAttribute("mainImgList", mainImgService.MainImgList());
         model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(ByUserName.getId()));
-
-
         return "/welcome";
     }
 }

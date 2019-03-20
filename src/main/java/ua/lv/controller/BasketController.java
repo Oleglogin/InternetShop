@@ -28,11 +28,11 @@ public class BasketController {
     @RequestMapping(value = "/basket", method = RequestMethod.GET)
     public String toBasket(Model model, Principal principal){
         String principalName = principal.getName();
-        User basketName = userService.findByUserName(principalName);
+        User basketUser = userService.findByUserName(principalName);
         model.addAttribute("currentUser", userService.findByUserName(principalName));
-        model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(basketName.getId()));
-        model.addAttribute("purchaseList", purchaseService.listPurchase());
-        model.addAttribute("amountPrice", purchaseService.amountInBasket(basketName.getId()));
+        model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(basketUser.getId()));
+        model.addAttribute("purchaseListInBasket", purchaseService.purchaseListInBasket(basketUser.getId()));
+        model.addAttribute("amountPrice", purchaseService.amountInBasket(basketUser.getId()));
         return "basket";
     }
 }

@@ -14,5 +14,5 @@ public interface PurchaseService {
     int countProductsByUser(int id);
     int amountInBasket(int id);
 
-    int countProductsByBasket(int count);
+    List<Purchase>purchaseListInBasket(int id);
 }

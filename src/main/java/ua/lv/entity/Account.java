@@ -24,6 +24,8 @@ public class Account {
     @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
 
+    public Account() {
+    }
 
     public Account(String country, String state, String phone, String avatar) {
         this.country = country;

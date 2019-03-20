@@ -17,21 +17,20 @@
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li class="active-menu">
-                            <a href="/welcome">Home</a>
+                            <a href="/welcome">Main</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <%--<c:if test="${currentUser.authority == 'ROLE_SELLER'}">--%>
                                         <a href="/seller">seller</a>
-                                    <%--</c:if>--%>
                                 </li>
-                                <li>
-                                    <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
+                                <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
+                                    <li>
                                         <a href="/admin">admin</a>
-                                    </c:if>
-                                </li>
+                                    </li>
+                                </c:if>
                                 <li>
-                                    <a href="/userData/${currentUser.id}">Home ${currentUser.username}</a>
+                                    <a href="/userData/${currentUser.id}">Home</a>
                                 </li>
+
                             </ul>
                         </li>
 
@@ -133,15 +132,11 @@
                         <div class="block2-pic hov-img0">
                             <img src="${mainImg.pictures}">
                             <div class="block1-txt-child1 flex-col-l">
-                                    <span class="block1-name ltext-102 trans-04 p-b-8">
-                                            ${mainImg.name}
-                                    </span>
+                                <span class="block1-name ltext-102 trans-04 p-b-8">
+                                        ${mainImg.name}
+                                </span>
                                 <span>
-                                        <a href="<c:url value='/mainImgRemove/${mainImg.id}'/> ">Delete</a>
-                                    </span>
-
-                                <span class="block1-info stext-102 trans-04">
-                                        ${mainImg.category}
+                                    <a href="<c:url value='/mainImgRemove/${mainImg.id}'/> ">Delete</a>
                                 </span>
                             </div>
 
