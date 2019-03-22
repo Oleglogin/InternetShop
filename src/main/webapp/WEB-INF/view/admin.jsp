@@ -1,22 +1,59 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="tmp/header.jsp"%>
+<header>
+    <nav class="limiter-menu-desktop container">
 
-<h2>Hello ${currentUser.username}</h2>
+        <!-- Logo desktop -->
+        <a href="#" class="logo">
+            <img src="../../resources/images/icons/logo-01.png" alt="IMG-LOGO">
+        </a>
+        <!-- Menu desktop -->
+        <div class="menu-desktop">
+            <ul class="main-menu">
+                <li class="active-menu label1" data-label1="hot">
+                <li>
+                    <a href="/welcome">Main</a>
+                </li>
+                <ul class="sub-menu">
+                    <li>
+                        <c:if test="${currentUser.authority == 'ROLE_SELLER'}">
+                            <a href="/seller">seller</a>
+                        </c:if>
+                    </li>
+                    <li>
+                        <c:if test="${currentUser.authority == 'ROLE_ADMIN'}">
+                            <a href="/admin">admin</a>
+                        </c:if>
+                    </li>
+                </ul>
+                </li>
+                <li>
+                    <a href="/registration">Sign up</a>
+                </li>
+                <li>
+                    <a href="/login">Sign in</a>
+                </li>
+                <li>
+                    <a href="/logout">Exit</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Icon header -->
+        <div class="wrap-icon-header flex-w flex-r-m">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                <i class="zmdi zmdi-search"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
 
 <div class="container">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="/welcome">Main page</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/logout">Exit</a>
-        </li>
-        <li class="nav-item active">
-            <a href="/seller">Add product</a>
-        </li>
-    </ul>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs col-xl-10">
