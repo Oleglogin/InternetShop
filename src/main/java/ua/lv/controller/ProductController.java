@@ -32,16 +32,14 @@ public class ProductController {
 
     @RequestMapping(value = "/product/add", method = RequestMethod.POST)
     public String addProduct(@ModelAttribute("emptyProduct") Product product,
-                             Model model,
                              Principal principal){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
-//        model.addAttribute("currentUser", byUserName);
 
         product.setUser(byUserName);
 
         productService.save(product);
-        return "redirect:/seller";    // add opportunity save product other users since ROLE_SELLER
+        return "redirect:/admin";
     }
 
 

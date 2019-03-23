@@ -40,9 +40,6 @@
     </div>
 </header>
 
-
-
-
 <div class="container-fluid">
 
     <div class="bg0 p-t-23 p-b-140">
@@ -57,7 +54,7 @@
                         <div class="container">
                             <div class="flex-w flex-r-m p-b-10">
                                 <div class="size-203 flex-c-m respon6">
-                                    Email
+                                    Username
                                 </div>
 
                                 <div class="size-204 respon6-next">
@@ -70,7 +67,7 @@
 
                             <div class="flex-w flex-r-m p-b-10">
                                 <div class="size-203 flex-c-m respon6">
-                                    Username
+                                    Password
                                 </div>
 
                                 <div class="size-204 respon6-next">
@@ -80,8 +77,8 @@
                                     </div>
                                 </div>
                             </div>
-                        <input type="submit" cclass="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
+                            <input type="submit" cclass="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
                     </form>
                 </div>
             </div>
@@ -89,6 +86,9 @@
     </div>
 
 </div>
+
+
+
 
 
 

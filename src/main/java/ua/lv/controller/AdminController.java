@@ -27,14 +27,17 @@ public class AdminController {
     ProductService productService;
 
 
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String toAdmin(Model model, Principal principal, @ModelAttribute("emptyMainImg")MainImg mainImg){
+    public String toAdmin(Model model, Principal principal,
+                          @ModelAttribute("emptyMainImg")MainImg mainImg,
+                          @ModelAttribute("emptyProduct")Product product){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
-        model.addAttribute("currentProduct", new Product());
 
         model.addAttribute("userList", userService.listUsers());
+        model.addAttribute("productList", productService.productList());
         return "admin";
     }
 

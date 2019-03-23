@@ -15,4 +15,7 @@ public interface ProductService {
     List<Product> productList();
     Product findByproductName(String productname);
     List<Product> categoryProduct(String category);
+
+    int countProduct();
+
 }

@@ -47,4 +47,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> categoryProduct(String category) {
         return productDAO.categoryProducts(category);
     }
+
+    @Override
+    public int countProduct() {
+        return productDAO.countProduct();
+    }
 }

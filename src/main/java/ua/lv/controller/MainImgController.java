@@ -34,7 +34,7 @@ public class MainImgController {
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
         mainImgService.save(mainImg);
-        return "admin";    // add opportunity save product other users since ROLE_SELLER
+        return "redirect:/admin";
     }
 
     @RequestMapping(value = "/mainImgRemove/{id}", method = RequestMethod.GET)

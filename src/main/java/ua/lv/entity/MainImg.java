@@ -22,7 +22,7 @@ public class MainImg {
 
     private String pictures;
 
-    private String category;
+    private String imgCategory;
 
     private String menu;
 
@@ -76,12 +76,12 @@ public class MainImg {
         this.pictures = "\\workImg\\" + multipartFile.getOriginalFilename();
     }
 
-    public String getCategory() {
-        return category;
+    public String getImgCategory() {
+        return imgCategory;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setImgCategory(String imgCategory) {
+        this.imgCategory = imgCategory;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class MainImg {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", pictures='" + pictures + '\'' +
-                ", category='" + category + '\'' +
+                ", category='" + imgCategory + '\'' +
                 '}';
     }
 }

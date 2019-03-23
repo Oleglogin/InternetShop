@@ -85,9 +85,9 @@
         <div class="wrap-slick1">
             <div class="slick1">
                 <c:forEach items="${mainImgList}" var="mainImg">
-                    <c:if test="${mainImg.category == 'mainPreview'}">
+                    <c:if test="${mainImg.imgCategory == 'mainPreview'}">
                         <div class="item-slick1">
-                            <img class="img-fluid" alt="Responsive image" src="${mainImg.pictures}" >
+                            <img class="img-fluid" alt="Responsive image" src="${mainImg.pictures}"/>
                             <div class="container-fluid">
 
                                 <a href="<c:url value='/mainImgRemove/${mainImg.id}'/> ">Delete</a>
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </img>
+                        </div>
                     </c:if>
                 </c:forEach>
             </div>
@@ -126,7 +126,7 @@
     <div class="container">
         <div class="row">
             <c:forEach items="${mainImgList}" var="mainImg">
-                <c:if test="${mainImg.category == 'preview'}">
+                <c:if test="${mainImg.imgCategory == 'preview'}">
                     <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
                         <!-- Block1 -->
                         <div class="block2-pic hov-img0">

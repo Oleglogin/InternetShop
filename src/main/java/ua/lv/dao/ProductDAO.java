@@ -18,4 +18,11 @@ public interface ProductDAO extends JpaRepository<Product, Integer> {
 
     @Query("from Product p where p.category =:category")
     List<Product>categoryProducts(@Param("category")String category);
+
+    @Query("select count (product.id) from Product product")
+    int countProduct();
+
+//    @Query("from Product p where max p.id ")
+//    Product findLastProduct();
+
 }
