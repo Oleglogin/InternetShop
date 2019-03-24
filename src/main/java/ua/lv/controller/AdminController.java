@@ -31,11 +31,14 @@ public class AdminController {
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String toAdmin(Model model, Principal principal,
                           @ModelAttribute("emptyMainImg")MainImg mainImg,
-                          @ModelAttribute("emptyProduct")Product product){
+                          @ModelAttribute("emptyProduct")Product product,
+                          @ModelAttribute("emptyUser")User user){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
 
+        model.addAttribute("countProduct", productService.countProduct());
+        model.addAttribute("countUser", userService.countUser());
         model.addAttribute("userList", userService.listUsers());
         model.addAttribute("productList", productService.productList());
         return "admin";

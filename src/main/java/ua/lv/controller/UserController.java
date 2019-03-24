@@ -47,5 +47,16 @@ public class UserController {
         return "userData";
     }
 
+    @RequestMapping(value = "changeLocked/{id}", method = RequestMethod.GET)
+    public String changeLocked(@PathVariable("id")int id,
+                               Model model, Principal principal){
+        String principalName = principal.getName();
+        User byUserName = userService.findByUserName(principalName);
+        model.addAttribute("currentUser",byUserName);
+
+        model.addAttribute("emptyUser",userService.getUserById(id));
+        return "admin";
+    }
+
 
 }

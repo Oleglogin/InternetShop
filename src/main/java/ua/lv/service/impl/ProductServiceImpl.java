@@ -52,4 +52,9 @@ public class ProductServiceImpl implements ProductService {
     public int countProduct() {
         return productDAO.countProduct();
     }
+
+    @Override
+    public List<Product> productListByUser(int id) {
+        return productDAO.productListByUser(id);
+    }
 }

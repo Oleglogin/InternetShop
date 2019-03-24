@@ -1,6 +1,5 @@
 package ua.lv.service;
 
-import org.springframework.security.access.method.P;
 import ua.lv.entity.Product;
 
 import java.util.List;
@@ -17,5 +16,7 @@ public interface ProductService {
     List<Product> categoryProduct(String category);
 
     int countProduct();
+
+    List<Product> productListByUser(int id);
 
 }

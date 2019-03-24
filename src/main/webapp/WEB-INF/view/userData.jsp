@@ -83,14 +83,14 @@
                 </c:if>
             </div>
             <div class="p-r-50 p-t-5 p-lr-0-lg">
-                <c:if test="${countAccount < 1}">
+                <c:if test="${countAccount < 1 && currentUser.id == user.id}">
                     <h4 class="mtext-105 cl2 js-name-detail p-b-14">
                         <a href="/account/${user.id}">Fill  Account</a>
                     </h4>
                 </c:if>
-                <c:if test="${countAccount >= 1}">
+                <c:if test="${countAccount >= 1 && currentUser.id == user.id}">
                     <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                        <a href="/editAccount/${user.id}">Edit  Account</a>
+                        <a href="/editAccount/${currentUser.id}">Edit  Account</a>
                     </h4>
                 </c:if>
                 <span class="mtext-106 cl2">

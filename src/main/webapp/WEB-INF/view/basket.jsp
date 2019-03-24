@@ -90,7 +90,6 @@
                                 <th class="column-4">Total</th>
                                 <th class="column-5">Delete</th>
                             </tr>
-                            <%--<c:forEach items="${purchaseList}" var="purchase">--%>
                             <c:forEach items="${purchaseListInBasket}" var="purchase">
                                     <tr class="table_row">
                                         <td class="column-1">
