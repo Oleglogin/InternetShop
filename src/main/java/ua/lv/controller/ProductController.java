@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ua.lv.entity.MainImg;
 import ua.lv.entity.Product;
 import ua.lv.entity.Purchase;
 import ua.lv.entity.User;
@@ -79,12 +80,20 @@ public class ProductController {
 
     @RequestMapping(value = "/productEdit/{id}", method = RequestMethod.GET)
     public String productEdit(@PathVariable("id")int id,
-                              Model model, Principal principal){
+                              Model model, Principal principal,
+                              @ModelAttribute("emptyMainImg")MainImg mainImg,
+                              @ModelAttribute("emptyProduct")Product product,
+                              @ModelAttribute("emptyUser")User user){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser" , byUserName);
 
+        model.addAttribute("countProduct", productService.countProduct());
+        model.addAttribute("countUser", userService.countUser());
+        model.addAttribute("userList", userService.listUsers());
+        model.addAttribute("productList", productService.productList());
+
         model.addAttribute("emptyProduct", productService.getByProductId(id));
-        return "seller";
+        return "admin";
     }
 }

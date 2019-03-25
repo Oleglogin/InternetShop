@@ -40,6 +40,7 @@ public class AccountController {
                             Model model,
                             Principal principal,
                             @ModelAttribute("emptyAccount") Account account){
+        model.addAttribute("emptyAccount",new Account());
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
@@ -60,18 +61,18 @@ public class AccountController {
         return "redirect:/welcome";
     }
 
-//    @ModelAttribute(value = "editAccount/{id}")
-//    public String editAccount(@ModelAttribute("emptyAccount") Account account,
-//                              Model model, Principal principal,
-//                              @PathVariable("id") int id){
-//        String principalName = principal.getName();
-//        User byUserName = userService.findByUserName(principalName);
-//        model.addAttribute("currentUser",byUserName);
-//
-//        model.addAttribute("emptyAccount", accountService.getAccountById(id));
-//
-//        return "welcome";
-//    }
+    @RequestMapping(value = "/editAccount/{id}")
+    public String editAcc(@PathVariable("id") int id,
+                          Model model, Principal principal,
+                          @ModelAttribute("emptyAccount")Account account){
+        String principalName = principal.getName();
+        User byUserName= userService.findByUserName(principalName);
+        model.addAttribute("currentUser",byUserName);
+        model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(id));
+        model.addAttribute("emptyAccount", accountService.getAccountById(id));
+        return "/account";
+    }
+
 
 
 

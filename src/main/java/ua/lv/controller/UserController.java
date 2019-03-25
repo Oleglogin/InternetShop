@@ -35,7 +35,8 @@ public class UserController {
     public String toUserData(@PathVariable("id")int id,
                              Model model,
                              Principal principal,
-                             @ModelAttribute("emptyAccount") Account account){
+                             @ModelAttribute("emptyAccount") Account account,
+                             @ModelAttribute("emptyUser")User user){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
@@ -47,7 +48,7 @@ public class UserController {
         return "userData";
     }
 
-    @RequestMapping(value = "changeLocked/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "userData/Locked/{id}", method = RequestMethod.GET)
     public String changeLocked(@PathVariable("id")int id,
                                Model model, Principal principal){
         String principalName = principal.getName();
@@ -55,8 +56,7 @@ public class UserController {
         model.addAttribute("currentUser",byUserName);
 
         model.addAttribute("emptyUser",userService.getUserById(id));
-        return "admin";
+        return "userData";
     }
-
 
 }

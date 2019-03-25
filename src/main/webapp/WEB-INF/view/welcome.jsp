@@ -61,10 +61,12 @@
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                         <i class="zmdi zmdi-search"></i>
                     </div>
+                    <c:if test="${countProductInBasket !=0}">
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBasket}">
+                            <a href="/basket"><i class="zmdi zmdi-shopping-cart"></i></a>
+                        </div>
+                    </c:if>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="${countProductInBasket}">
-                        <a href="/basket"><i class="zmdi zmdi-shopping-cart"></i></a>
-                    </div>
 
                     <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>

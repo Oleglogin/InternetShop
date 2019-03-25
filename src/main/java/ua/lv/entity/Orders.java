@@ -14,12 +14,20 @@ public class Orders {
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private User user;
-
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Purchase purchase;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Product product;
 
+    public Orders() {
+    }
+
+    public Orders(int sum, User user, Purchase purchase, Product product) {
+        this.sum = sum;
+        this.user = user;
+        this.purchase = purchase;
+        this.product = product;
+    }
 
     public Orders(User user) {
         this.user = user;

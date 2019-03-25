@@ -144,28 +144,8 @@
                             <p class="stext-111 cl6 p-t-2">There are no shipping methods available. Please double check your address, or contact us if you need any help.</p>
                             <div class="p-t-15">
 									<span class="stext-112 cl8">Calculate Shipping</span>
-                                <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                    <select class="js-select2" name="time">
-                                        <option>Select a country...</option>
-                                        <option>USA</option>
-                                        <option>UK</option>
-                                    </select>
-                                    <div class="dropDownSelect2"></div>
-                                </div>
 
-                                <div class="bor8 bg0 m-b-12">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
-                                </div>
 
-                                <div class="bor8 bg0 m-b-22">
-                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
-                                </div>
-
-                                <div class="flex-w">
-                                    <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                        Update Totals
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
@@ -184,10 +164,15 @@
 								</span>
                         </div>
                     </div>
-
-                    <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                        Proceed to Checkout
-                    </button>
+                        <c:url value="/order/add" var="addOrder"/>
+                        <form:form action="${addOrder}" modelAttribute="emptyOrders">
+                            <div class="bor8 bg0 m-b-12">
+                                <form:input  path="sum" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Sum"/>
+                            </div>
+                            <%--<input type="submit" value="add order" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">--%>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
+                        </form:form>
+                    </div>
                 </div>
             </div>
         </div>
