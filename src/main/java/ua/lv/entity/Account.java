@@ -21,7 +21,7 @@ public class Account {
     private String phone;
     private String avatar;
 
-    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     private User user;
 
     public Account() {

@@ -33,6 +33,7 @@ public class BasketController {
         String principalName = principal.getName();
         User basketUser = userService.findByUserName(principalName);
         model.addAttribute("currentUser", userService.findByUserName(principalName));
+
         model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(basketUser.getId()));
         model.addAttribute("purchaseListInBasket", purchaseService.purchaseListInBasket(basketUser.getId()));
         model.addAttribute("amountPrice", purchaseService.amountInBasket(basketUser.getId()));

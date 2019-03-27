@@ -1,6 +1,7 @@
 package ua.lv.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by User on 16.03.2019.
@@ -10,23 +11,29 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int sum;
+    private int count;
+    private int amount;
+
+    private Date dateOfOrder = new Date();
+
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private User user;
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Purchase purchase;
+//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//    private Purchase purchase;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Product product;
 
     public Orders() {
     }
 
-    public Orders(int sum, User user, Purchase purchase, Product product) {
-        this.sum = sum;
+    public Orders(int count, int amount, User user, Purchase purchase, Product product, Date dateOfOrder) {
+        this.count = count;
+        this.amount = amount;
         this.user = user;
-        this.purchase = purchase;
+//        this.purchase = purchase;
         this.product = product;
+        this.dateOfOrder = dateOfOrder;
     }
 
     public Orders(User user) {
@@ -49,21 +56,15 @@ public class Orders {
         this.user = user;
     }
 
-    public int getSum() {
-        return sum;
-    }
 
-    public void setSum(int sum) {
-        this.sum = sum;
-    }
 
-    public Purchase getPurchase() {
-        return purchase;
-    }
-
-    public void setPurchase(Purchase purchase) {
-        this.purchase = purchase;
-    }
+//    public Purchase getPurchase() {
+//        return purchase;
+//    }
+//
+//    public void setPurchase(Purchase purchase) {
+//        this.purchase = purchase;
+//    }
 
     public Product getProduct() {
         return product;
@@ -71,5 +72,29 @@ public class Orders {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public Date getDateOfRegistration() {
+        return dateOfOrder;
+    }
+
+    public void setDateOfRegistration(Date dateOfRegistration) {
+        this.dateOfOrder = dateOfRegistration;
     }
 }

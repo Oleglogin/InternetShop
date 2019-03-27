@@ -75,7 +75,6 @@
 
 
 <!-- Shoping Cart -->
-<form class="bg0 p-t-75 p-b-85">
     <div class="container">
         <div class="row">
 
@@ -162,20 +161,13 @@
 								<span class="mtext-110 cl2">
 									$ ${amountPrice}
 								</span>
-                        </div>
-                    </div>
-                        <c:url value="/order/add" var="addOrder"/>
-                        <form:form action="${addOrder}" modelAttribute="emptyOrders">
-                            <div class="bor8 bg0 m-b-12">
-                                <form:input  path="sum" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Sum"/>
+                        <form:form action="fillOrder/${currentUser.id}" method="post" modelAttribute="emptyOrders">
+                            <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+                                <input type="submit">
                             </div>
-                            <%--<input type="submit" value="add order" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">--%>
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
                         </form:form>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-</form>
 <%@include file="tmp/footer.jsp" %>

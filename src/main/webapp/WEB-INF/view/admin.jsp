@@ -148,6 +148,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -248,18 +249,6 @@
     </div>
 </section>
 
-
-
-<c:url value="/order/add" var="addOrder"/>
-<form:form action="${addOrder}" modelAttribute="emptyOrders">
-
-
-    <div class="bor8 bg0 m-b-12">
-        <form:input  path="sum" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Sum"/>
-    </div>
-
-    <input type="submit" value="add order" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-</form:form>
 <%--<section class="sec-product-detail bg0 p-t-65 p-b-60">--%>
     <%--<div class="container">--%>
         <%--<div class="row">--%>

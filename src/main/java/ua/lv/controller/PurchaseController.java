@@ -55,20 +55,24 @@ public class PurchaseController {
         return "redirect:/basket";
     }
 
-//    @RequestMapping(value = "/order/add/", method = RequestMethod.POST)
-//    public String addOrders(@ModelAttribute("emptyOrders")Orders orders,
-//                            Model model, Principal principal){
-//        String principalName = principal.getName();
-//        User byUserNAme = userService.findByUserName(principalName);
-//        model.addAttribute("currentUser", byUserNAme);
-//
-//        model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(byUserNAme.getId()));
-//        model.addAttribute("purchaseListInBasket", purchaseService.purchaseListInBasket(byUserNAme.getId()));
-//        model.addAttribute("amountPrice", purchaseService.amountInBasket(byUserNAme.getId()));
-//        model.addAttribute("countProductInBasket",purchaseService.amountInBasket(byUserNAme.getId()));
-//        orders.setUser(byUserNAme);
-//        ordersService.saveOrders(orders);
-//        return "redirect:/basket";
-//
-//    }
+    @RequestMapping(value = "fillOrder/{id}", method = RequestMethod.POST)
+    public String fillOrders(Model model, Principal principal,
+                             @PathVariable("id") int id){
+        String principalName = principal.getName();
+        User basketUser = userService.findByUserName(principalName);
+        model.addAttribute("currentUser", basketUser);
+
+        model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(basketUser.getId()));
+        model.addAttribute("purchaseListInBasket", purchaseService.purchaseListInBasket(basketUser.getId()));
+        model.addAttribute("amountPrice", purchaseService.amountInBasket(basketUser.getId()));
+        model.addAttribute("countProductInBasket",purchaseService.amountInBasket(basketUser.getId()));
+
+
+//        purchaseService.purchaseListInBasket(id);
+//        ordersService.getProductInOrders(id);
+
+
+        return "basket";
+    }
+
 }

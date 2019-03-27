@@ -13,4 +13,5 @@ public interface OrdersService {
     void delete(int id);
     Orders getOrdersId(int id);
     List<Orders> ordersList();
+    List<Orders>getProductInOrders(int id);
 }

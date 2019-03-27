@@ -19,8 +19,8 @@ public class Purchase {
     private User user;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Product product;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase" )
-    private List<Orders> orders;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "purchase" )
+//    private List<Orders> orders;
 
     public Purchase() {
     }
@@ -69,13 +69,13 @@ public class Purchase {
         this.amount = amount;
     }
 
-    public List<Orders> getOrderss() {
-        return orders;
-    }
+//    public List<Orders> getOrderss() {
+//        return orders;
+//    }
 
-    public void setOrderss(List<Orders> orderss) {
-        this.orders = orderss;
-    }
+//    public void setOrderss(List<Orders> orderss) {
+//        this.orders = orderss;
+//    }
 
     @Override
     public String toString() {

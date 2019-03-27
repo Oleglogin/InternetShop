@@ -65,6 +65,7 @@ public class AccountController {
     public String editAcc(@PathVariable("id") int id,
                           Model model, Principal principal,
                           @ModelAttribute("emptyAccount")Account account){
+        model.addAttribute("emptyAccount",new Account());
         String principalName = principal.getName();
         User byUserName= userService.findByUserName(principalName);
         model.addAttribute("currentUser",byUserName);

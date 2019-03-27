@@ -38,4 +38,10 @@ public class OrdersServiceImpl implements OrdersService {
     public List<Orders> ordersList() {
         return ordersDAO.findAll();
     }
+
+    @Override
+    public List<Orders> getProductInOrders(int id) {
+        return null;
+//                ordersDAO.getProductInOrders(id);
+    }
 }

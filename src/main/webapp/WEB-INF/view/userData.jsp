@@ -90,7 +90,7 @@
                 </c:if>
                 <c:if test="${countAccount >= 1 && currentUser.id == user.id}">
                     <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                        <a href="/editAccount/${user.account.id}">Edit  Account</a>
+                        <a href="/editAccount/${currentUser.account.id}">Edit  Account</a>
                     </h4>
                 </c:if>
                 <span class="mtext-106 cl2">
