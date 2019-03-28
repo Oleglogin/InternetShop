@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ua.lv.entity.MainImg;
-import ua.lv.entity.Product;
-import ua.lv.entity.Purchase;
-import ua.lv.entity.User;
+import ua.lv.entity.*;
+import ua.lv.service.CommentsService;
 import ua.lv.service.ProductService;
 import ua.lv.service.PurchaseService;
 import ua.lv.service.UserService;
@@ -30,6 +28,8 @@ public class ProductController {
     ProductService productService;
     @Autowired
     PurchaseService purchaseService;
+    @Autowired
+    CommentsService commentsService;
 
     @RequestMapping(value = "/product/add", method = RequestMethod.POST)
     public String addProduct(@ModelAttribute("emptyProduct") Product product,
@@ -45,12 +45,14 @@ public class ProductController {
 
 
     @RequestMapping(value = "/productData/{id}", method = RequestMethod.GET)
-    public String productData(@PathVariable("id") int id, Model model, Principal principal){
+    public String productData(@PathVariable("id") int id, Model model, Principal principal,
+                              @ModelAttribute("emptyComments")Comments comments){
 
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
 
+        model.addAttribute("commentsList", commentsService.commentsList());
 
         model.addAttribute("countProductInBasket",purchaseService.countProductsByUser(byUserName.getId()));
         model.addAttribute("emptyPurchase", new Purchase());

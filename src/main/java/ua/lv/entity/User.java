@@ -31,6 +31,8 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Purchase> purchases;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Comments>commentss;
 
     public List<Purchase> getPurchases() {
         return purchases;
@@ -178,7 +180,13 @@ public class User implements UserDetails {
         this.account = account;
     }
 
+    public List<Comments> getCommentss() {
+        return commentss;
+    }
 
+    public void setCommentss(List<Comments> commentss) {
+        this.commentss = commentss;
+    }
 
     @Override
     public String toString() {

@@ -95,6 +95,29 @@
                                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${product.productImg}">
                                     <i class="fa fa-expand"></i>
                                 </a>
+
+                                <c:forEach items="${commentsByProduct}" var="cBp">
+                                    <p>${cBp.comment}</p>
+                                </c:forEach>
+                                <c:forEach items="${commentsList}" var="cBp">
+                                    <p>${cBp.comment}</p>
+                                </c:forEach>
+
+
+
+
+                                    <div class="container">
+
+                                                <form:form action="/addComments/${currentUser.id}/${product.id}" modelAttribute="emptyComments">
+                                                    <div class="bor8 m-b-30">
+                                                        <form:input path="comment" class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"/>
+                                                    </div>
+                                                    <form:input type="hidden" path="id" readonly="true"/>
+                                                    <input type="submit" value="sent" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                </form:form>
+
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +147,7 @@
                                 <i class="fs-16 zmdi zmdi-minus"></i>
                             </div>
 
-                            <form:input path="count" class="mtext-104 cl3 txt-center num-product"  name="num-product1" value="0"/>
+                            <form:input path="count" class="mtext-104 cl3 txt-center num-product"  name="num-product1" value="1"/>
 
                             <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                 <i class="fs-16 zmdi zmdi-plus"></i>

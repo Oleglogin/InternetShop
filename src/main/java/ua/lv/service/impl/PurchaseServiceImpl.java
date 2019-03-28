@@ -60,6 +60,6 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public void successOrder(int id) {
-
+        purchaseDAO.successOrder(id);
     }
 }

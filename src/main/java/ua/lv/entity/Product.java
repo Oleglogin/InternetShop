@@ -29,6 +29,9 @@ public class Product {
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Purchase> purchases;
 
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private List<Comments> commentss;
+
 
 
     public Product() {
@@ -136,6 +139,14 @@ public class Product {
         this.user = user;
     }
 
+
+    public List<Comments> getCommentss() {
+        return commentss;
+    }
+
+    public void setCommentss(List<Comments> commentss) {
+        this.commentss = commentss;
+    }
 
     @Override
     public String toString() {

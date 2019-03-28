@@ -163,7 +163,7 @@
 								</span>
                         <form:form action="fillOrder/${currentUser.id}" method="post" modelAttribute="emptyOrders">
                             <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-                                <input type="submit">
+                                <input type="submit" value="Ok">
                             </div>
                         </form:form>
                 </div>
