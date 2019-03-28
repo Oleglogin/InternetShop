@@ -201,9 +201,9 @@
                                             </div>
                                         </td>
                                         <td class="column-2">${product.price}</td>
-                                        <td class="column-3"><a href="<c:url value='/productEdit/${product.id}'/> ">Edit</a></td>
+                                        <td class="column-3"><a href="<c:url value='#'/> ">Edit</a></td>
                                         <td class="column-4"><a href="<c:url value='/productRemove/${product.id}'/> ">Delete</a></td>
-                                        <td class="column-5">${product.count}</td>
+                                        <td class="column-5">${product.user.username}</td>
                                     </tr>
                                 </c:if>
                             </c:forEach>

@@ -29,8 +29,6 @@ public class Product {
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Purchase> purchases;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product" )
-    private List<Orders> orderss;
 
 
     public Product() {
@@ -138,13 +136,6 @@ public class Product {
         this.user = user;
     }
 
-    public List<Orders> getOrderss() {
-        return orderss;
-    }
-
-    public void setOrderss(List<Orders> orderss) {
-        this.orderss = orderss;
-    }
 
     @Override
     public String toString() {

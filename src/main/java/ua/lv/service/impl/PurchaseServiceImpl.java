@@ -50,4 +50,16 @@ public class PurchaseServiceImpl implements PurchaseService {
     public List<Purchase> purchaseListInBasket(int id) {
         return purchaseDAO.purchaseListInBasket(id);
     }
+
+
+
+    @Override
+    public Purchase findone(int id) {
+        return null;
+    }
+
+    @Override
+    public void successOrder(int id) {
+
+    }
 }

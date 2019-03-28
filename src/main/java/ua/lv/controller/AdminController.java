@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.lv.entity.MainImg;
-import ua.lv.entity.Orders;
 import ua.lv.entity.Product;
 import ua.lv.entity.User;
 import ua.lv.service.ProductService;
@@ -33,8 +32,7 @@ public class AdminController {
     public String toAdmin(Model model, Principal principal,
                           @ModelAttribute("emptyMainImg")MainImg mainImg,
                           @ModelAttribute("emptyProduct")Product product,
-                          @ModelAttribute("emptyUser")User user,
-                          @ModelAttribute("emptyOrders")Orders orders){
+                          @ModelAttribute("emptyUser")User user){
         String principalName = principal.getName();
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);

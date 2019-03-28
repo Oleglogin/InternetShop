@@ -24,8 +24,6 @@ public class User implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private Account account;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user" )
-    private List<Orders> orderss;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<Product> products;
@@ -180,13 +178,7 @@ public class User implements UserDetails {
         this.account = account;
     }
 
-    public List<Orders> getOrderss() {
-        return orderss;
-    }
 
-    public void setOrderss(List<Orders> orderss) {
-        this.orderss = orderss;
-    }
 
     @Override
     public String toString() {

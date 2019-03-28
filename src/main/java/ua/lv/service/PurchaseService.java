@@ -15,4 +15,7 @@ public interface PurchaseService {
     int amountInBasket(int id);
 
     List<Purchase>purchaseListInBasket(int id);
+    Purchase findone(int id);
+
+    void successOrder(int id);
 }
