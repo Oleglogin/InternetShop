@@ -33,8 +33,9 @@
                                 </div>
 
                                 <div class="size-204 respon6-next">
-                                    <div class="rs1-select2 bor8 bg0">
+                                    <div class="rs1-select2 bor8 bg0 ${status.error ? 'has-error' : ''}">
                                         <form:input path="username" type="text" placeholder="Enter login"/>
+                                        <form:errors path="username" class="cs"/>
                                         <div class="dropDownSelect2"></div>
                                     </div>
                                 </div>
@@ -46,8 +47,9 @@
                                 </div>
 
                                 <div class="size-204 respon6-next">
-                                    <div class="rs1-select2 bor8 bg0">
+                                    <div class="rs1-select2 bor8 bg0 ${status.error ? 'has-error' : ''}">
                                         <form:input path="password" type="password" placeholder="Enter password"/>
+                                        <form:errors path="password" class="cs"/>
                                         <div class="dropDownSelect2"></div>
                                     </div>
                                 </div>
@@ -59,8 +61,9 @@
                                 </div>
 
                                 <div class="size-204 respon6-next">
-                                    <div class="rs1-select2 bor8 bg0">
+                                    <div class="rs1-select2 bor8 bg0 ${status.error ? 'has-error' : ''}">
                                         <form:input path="confirmPassword" type="password" placeholder="Confirm password"/>
+                                        <form:errors path="confirmPassword" class="cs"/>
                                         <div class="dropDownSelect2"></div>
                                     </div>
                                 </div>

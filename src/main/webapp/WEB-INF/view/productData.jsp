@@ -95,34 +95,36 @@
                                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="${product.productImg}">
                                     <i class="fa fa-expand"></i>
                                 </a>
-
-                                <c:forEach items="${commentsByProduct}" var="cBp">
-                                    <p>${cBp.comment}</p>
-                                </c:forEach>
-                                <c:forEach items="${commentsList}" var="cBp">
-                                    <p>${cBp.comment}</p>
-                                </c:forEach>
-
-
-
-
-                                    <div class="container">
-
-                                                <form:form action="/addComments/${currentUser.id}/${product.id}" modelAttribute="emptyComments">
-                                                    <div class="bor8 m-b-30">
-                                                        <form:input path="comment" class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"/>
-                                                    </div>
-                                                    <form:input type="hidden" path="id" readonly="true"/>
-                                                    <input type="submit" value="sent" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                                </form:form>
-
-                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Content page -->
+            <section class="bg0">
+                <div class="container">
+                    <div class="flex-w flex-tr">
+                        <div class="size-510 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+                            <h4 class="mtext-105 cl2 txt-center p-b-30">
+                                Send A Message
+                            </h4>
+                            <form:form action="/addComments/${currentUser.id}/${product.id}" modelAttribute="emptyComments">
+                                <div class="bor8 m-b-30">
+                                    <form:input path="comment" class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"/>
+                                </div>
+                                <form:input type="hidden" path="id" readonly="true"/>
+                                <input type="submit" value="sent" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form:form>
+                            <c:forEach items="${commentsByProduct}" var="cBp">
+                                <p>${cBp.user.id} - ${cBp.comment}</p>
+                            </c:forEach>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
 
 
             <div class="col-md-6 col-lg-5 p-b-30">

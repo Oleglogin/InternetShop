@@ -59,11 +59,10 @@ public class PurchaseController {
         model.addAttribute("currentUser", basketUser);
 
         model.addAttribute("countProductInBasket", purchaseService.countProductsByUser(basketUser.getId()));
-//        model.addAttribute("purchaseListInBasket", purchaseService.purchaseListInBasket(basketUser.getId()));
         model.addAttribute("amountPrice", purchaseService.amountInBasket(basketUser.getId()));
         model.addAttribute("countProductInBasket",purchaseService.amountInBasket(basketUser.getId()));
         purchaseService.successOrder(id);
-        return "basket";
+        return "redirect:/basket";
     }
 
 }

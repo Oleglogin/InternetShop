@@ -52,7 +52,7 @@ public class ProductController {
         User byUserName = userService.findByUserName(principalName);
         model.addAttribute("currentUser", byUserName);
 
-        model.addAttribute("commentsList", commentsService.commentsList());
+        model.addAttribute("commentsByProduct",commentsService.commentsByProduct(id));
 
         model.addAttribute("countProductInBasket",purchaseService.countProductsByUser(byUserName.getId()));
         model.addAttribute("emptyPurchase", new Purchase());

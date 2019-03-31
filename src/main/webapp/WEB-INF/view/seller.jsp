@@ -59,9 +59,11 @@
     </nav>
 </header>
 
-<div class="container">
-    <div class="container-fluid">
+<section class="sec-product-detail bg0 p-t-65 p-b-60">
+    <div class="container">
         <div class="row">
+
+
             <div class="col-xs col-xl-10">
                 <div class="row">
                     <c:forEach items="${productList}" var="product">
@@ -81,48 +83,78 @@
                             </div>
                         </c:if>
                     </c:forEach>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-xl-3">
-                        <c:url value="/product/add" var="addProduct"/>
-                        <form:form action="${addProduct}" modelAttribute="emptyProduct" enctype="multipart/form-data">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <form:input path="title" id="title" placeholder="name"/>
-                                </div>
-                                <div class="container-fluid">
-                                    <form:input path="description" id="description" placeholder="description"/>
-                                </div>
-                                <div class="container-fluid">
-                                    <form:input path="price" id="price" placeholder="price"/>
-                                </div>
-                                <div class="container-fluid">
-                                    <form:input path="count" id="count" placeholder="count"/>
-                                </div>
 
-                                <div class="form-group col-md-3">
-                                    <form:select path="category" class="form-control input-goal">
-                                        <option>notebook</option>
-                                        <option>computer</option>
-                                        <option>smartphone</option>
-                                        <option>tv</option>
-                                        <option>audio</option>
-                                    </form:select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="file" name="productImg" class="form-control-file" formenctype="multipart/form-data" id="exampleformControlFile1">
-                            </div>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="form-group col-md-8">
-                                        <input type="submit" class="btn btn-primary">
+                </div>
+            </div>
+
+            <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto ">
+                <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+
+
+
+
+                    <h4 class="mtext-109 cl2 ">Add Product</h4>
+
+                    <div class="flex-w flex-t bor12">
+
+
+
+                        <div class="size-209">
+                            <div class="">
+                                <c:url value="/product/add" var="addProduct"/>
+                                <form:form action="${addProduct}" modelAttribute="emptyProduct" enctype="multipart/form-data">
+                                    <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
+                                        <form:select class="js-select2" name="time" path="category">
+                                            <option>notebook</option>
+                                            <option>computer</option>
+                                            <option>smartPhone</option>
+                                            <option>tv</option>
+                                            <option>audio</option>
+                                        </form:select>
+                                        <div class="dropDownSelect2"></div>
                                     </div>
-                                </div>
+
+                                    <div class="bor8 bg0 m-b-12">
+                                        <form:input  path="title" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Name"/>
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <form:input path="description" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="description"/>
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <form:input path="price" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="price"/>
+                                    </div>
+
+                                    <div class="bor8 bg0 m-b-22">
+                                        <form:input path="count" class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="count"/>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <input type="file" name="productImg" class="form-control-file" formenctype="multipart/form-data" id="exampleformControlFile1">
+                                    </div>
+                                    <form:input type="hidden" path="id" readonly="true"/>
+
+                                    <input type="submit" value="add product" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                </form:form>
+
                             </div>
-                            <form:input type="hidden" path="id" readonly="true"/>
-                        </form:form>
+                        </div>
                     </div>
                 </div>
             </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+
         </div>
     </div>
 
